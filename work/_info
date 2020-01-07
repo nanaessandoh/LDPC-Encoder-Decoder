@@ -1,0 +1,382 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Assignments/Assignment4
+Eawgn
+Z0 w1574083644
+Z1 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z7 dC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC
+Z8 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/AWGN.vhd
+Z9 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/AWGN.vhd
+l0
+L8
+Va9CO=;S;2BMaC^[i:QK`F0
+!s100 Fd]K6k_JLk^KI[H]LVBWE2
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1576891914
+!i10b 1
+Z12 !s108 1576891914.000000
+Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/AWGN.vhd|
+Z14 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/AWGN.vhd|
+!i113 1
+Z15 o-work work -2002 -explicit
+Z16 tExplicit 1 CvgOpt 0
+Abehav
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 4 awgn 0 22 a9CO=;S;2BMaC^[i:QK`F0
+l53
+L35
+VLLXF68^47o5`93`@CfVTR0
+!s100 51N1E5ZE10Je5MKnRTfad2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Ebiterasure
+Z17 w1576888694
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+Z18 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/BitErasure.vhd
+Z19 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/BitErasure.vhd
+l0
+L8
+VG@^nNc4g5o59@eLo:3Qm_1
+!s100 0lDz5F7hF7BnATloQiDnX2
+R10
+32
+Z20 !s110 1576891984
+!i10b 1
+Z21 !s108 1576891984.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/BitErasure.vhd|
+Z23 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/BitErasure.vhd|
+!i113 1
+R15
+R16
+Abehav
+R1
+R2
+R3
+R4
+R5
+R6
+Z24 DEx4 work 10 biterasure 0 22 G@^nNc4g5o59@eLo:3Qm_1
+l52
+L34
+VF4@90O:51M7XmjW6S[dPQ1
+!s100 MI;V5Q2Dmmlcg3=cbz1D<3
+R10
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R15
+R16
+Edecoder
+Z25 w1574038005
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+Z26 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Decoder.vhd
+Z27 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Decoder.vhd
+l0
+L8
+Vc;e=>UKZJHdLWOiO8CaT;2
+!s100 R=Pg<nK`i_@hej]51TgT[0
+R10
+32
+R11
+!i10b 1
+R12
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Decoder.vhd|
+Z29 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Decoder.vhd|
+!i113 1
+R15
+R16
+Abehav
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 7 decoder 0 22 c;e=>UKZJHdLWOiO8CaT;2
+l41
+L34
+V`KQ7Bc8]@SnC?C`P[3Q=z1
+!s100 FS@9bjoafT6`BRamdl[>g3
+R10
+32
+R11
+!i10b 1
+R12
+R28
+R29
+!i113 1
+R15
+R16
+Eencoder
+Z30 w1576887814
+R2
+R4
+R3
+R5
+R6
+R7
+Z31 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Encoder.vhd
+Z32 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Encoder.vhd
+l0
+L9
+VTEiA1Fn6@Vh6ieamCoJK>3
+!s100 2jb^XPQ[9fW<WL^jjJ>V=2
+R10
+32
+Z33 !s110 1576891964
+!i10b 1
+Z34 !s108 1576891964.000000
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Encoder.vhd|
+Z36 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Encoder.vhd|
+!i113 1
+R15
+R16
+Abehav
+R2
+R4
+R3
+R5
+R6
+DEx4 work 7 encoder 0 22 TEiA1Fn6@Vh6ieamCoJK>3
+l51
+L39
+VVMk7oGzhRaUfMi>>6aggo2
+!s100 daOH8h2TzZiXW5D:XFJ6Z1
+R10
+32
+R33
+!i10b 1
+R34
+R35
+R36
+!i113 1
+R15
+R16
+Etest_awgn
+Z37 w1574073098
+R1
+R2
+R4
+R3
+R5
+R6
+R7
+Z38 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd
+Z39 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd
+l0
+L9
+VJM5kNCS]aTj5V?F?^d8l`1
+!s100 `9QO`A:Toob=CE<SAaMc61
+R10
+32
+R11
+!i10b 1
+R12
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd|
+Z41 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd|
+!i113 1
+R15
+R16
+Abehav
+R1
+R2
+R4
+R3
+R5
+R6
+DEx4 work 9 test_awgn 0 22 JM5kNCS]aTj5V?F?^d8l`1
+l51
+L19
+V4LJ_IBaA4gWN6jKg<6ZOC3
+!s100 YAR<WI1]VHR@m=Q6QaReD2
+R10
+32
+R11
+!i10b 1
+R12
+R40
+R41
+!i113 1
+R15
+R16
+Etest_biterasure
+Z42 w1574046049
+R1
+R2
+R4
+R3
+R5
+R6
+R7
+Z43 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_BitErasure.vhd
+Z44 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_BitErasure.vhd
+l0
+L9
+VP7nVU>>m;IXmdj7E;8RQU0
+!s100 z`GjmMRofPLYSkHQbkL:S2
+R10
+32
+Z45 !s110 1576891915
+!i10b 1
+R12
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_BitErasure.vhd|
+Z47 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_BitErasure.vhd|
+!i113 1
+R15
+R16
+Abehav
+R1
+R2
+R4
+R3
+R5
+R6
+DEx4 work 15 test_biterasure 0 22 P7nVU>>m;IXmdj7E;8RQU0
+l51
+L19
+Vl>f93llc`NZW0Ra<jAg<]1
+!s100 I:;g?]M>0TocOnVnKmhaD3
+R10
+32
+R45
+!i10b 1
+R12
+R46
+R47
+!i113 1
+R15
+R16
+Etest_encoder
+Z48 w1574074221
+R2
+R4
+R3
+R5
+R6
+R7
+Z49 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_Encoder.vhd
+Z50 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_Encoder.vhd
+l0
+L7
+V=77_48loalOji]RO:4P]U2
+!s100 0G50E4blO6^20>>V;jIUd0
+R10
+32
+R11
+!i10b 1
+R12
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_Encoder.vhd|
+Z52 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_Encoder.vhd|
+!i113 1
+R15
+R16
+Abehav
+R2
+R4
+R3
+R5
+R6
+DEx4 work 12 test_encoder 0 22 =77_48loalOji]RO:4P]U2
+l48
+L16
+V6K7H[UdB`<OJE>Z>5gLg[2
+!s100 M=^F[K>a3?m@NaIIUSEFQ1
+R10
+32
+R11
+!i10b 1
+R12
+R51
+R52
+!i113 1
+R15
+R16
+Etop_level
+Z53 w1574043108
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+Z54 8C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Top_Level.vhd
+Z55 FC:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Top_Level.vhd
+l0
+L8
+V>DzKl?Ed_jFSNET8`E2G93
+!s100 zgY2neVF<8k[>;oTjPLj42
+R10
+32
+R11
+!i10b 1
+R12
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Top_Level.vhd|
+Z57 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Top_Level.vhd|
+!i113 1
+R15
+R16
+Abehav
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 9 top_level 0 22 >DzKl?Ed_jFSNET8`E2G93
+l41
+L34
+Vk6?7f`UKCYTRT85[SKVOj0
+!s100 al[VT53=H[^cnLD=]3zS=1
+R10
+32
+R11
+!i10b 1
+R12
+R56
+R57
+!i113 1
+R15
+R16
