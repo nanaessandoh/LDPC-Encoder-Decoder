@@ -1,4 +1,15 @@
-{C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd}
+{C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Encoder.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity encoder
+-- Compiling architecture behav of encoder
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/test_AWGN.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -33,6 +44,18 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package MATH_REAL
 -- Compiling entity AWGN
 -- Compiling architecture behav of AWGN
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/BitErasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/BitErasure.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity BitErasure
+-- Compiling architecture behav of BitErasure
 
 } {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Decoder.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/ASIC Design/Project/LDPC/Decoder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
