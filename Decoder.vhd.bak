@@ -267,7 +267,7 @@ BEGIN
 
 
 	IF ( current_state = CODE_CHECK) THEN
-	--- Use a loop here
+
 	END IF;
 
 

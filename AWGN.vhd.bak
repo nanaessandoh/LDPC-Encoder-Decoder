@@ -128,7 +128,7 @@ BEGIN
 
 	IF ( current_state = ONRESET) THEN
  		error_data <= "UUUUUUUUUU" ;
-		edone <= 'U';
+		edone <= '0';
 		verify_code<= 'U'; 
 		gen_done <= 'U'; 
 
