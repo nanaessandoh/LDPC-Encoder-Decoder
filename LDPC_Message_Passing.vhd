@@ -148,45 +148,82 @@ BEGIN
 
 	IF (current_state = PARITY_COUNT) THEN
 	
-	IF (idata(N-1) = '0' or idata(N-1) = '1' ) THEN --(9)
+	IF (idata(N-1) = '0') or (idata(N-1) = '1' ) THEN --(9)
 		pcheck1 <= pcheck1 + 1;
+	ELSE
+		pcheck1 <= pcheck1;
 	END IF;
-	IF (idata(N-2) = '0' or idata(N-2) = '1' ) THEN --(8)
+
+	IF (idata(N-2) = '0') or (idata(N-2) = '1' ) THEN --(8)
 		pcheck2 <= pcheck2 + 1;
+	ELSE
+		pcheck2 <= pcheck2;
 	END IF;
-	IF (idata(N-3) = '0' or idata(N-3) = '1' ) THEN --(7)
+
+	IF (idata(N-3) = '0') or (idata(N-3) = '1' ) THEN --(7)
 		pcheck3 <= pcheck3 + 1;
+	ELSE
+		pcheck3 <= pcheck3;
 	END IF;
-	IF (idata(N-4) = '0' or idata(N-4) = '1' ) THEN --(6)
+
+	IF (idata(N-4) = '0') or (idata(N-4) = '1' ) THEN --(6)
 		pcheck4 <= pcheck4 + 1;
+	ELSE
+		pcheck4 <= pcheck4;
 	END IF;
-	IF (idata(N-5) = '0' or idata(N-5) = '1' ) THEN --(5)
+
+	IF (idata(N-5) = '0') or (idata(N-5) = '1' ) THEN --(5)
 		pcheck5 <= pcheck5 + 1;
+	ELSE
+		pcheck5 <= pcheck5;
 	END IF;
-	IF (idata(N-6) = '0' or idata(N-6) = '1' ) THEN --(4)
+
+	IF (idata(N-6) = '0') or (idata(N-6) = '1' ) THEN --(4)
 		pcheck2 <= pcheck2 + 1;
 		pcheck3 <= pcheck3 + 1;
 		pcheck4 <= pcheck4 + 1;
+	ELSE
+		pcheck2 <= pcheck2;
+		pcheck3 <= pcheck3;
+		pcheck4 <= pcheck4;
 	END IF;
-	IF (idata(N-7) = '0' or idata(N-7) = '1' ) THEN --(3)
+
+	IF (idata(N-7) = '0') or (idata(N-7) = '1' ) THEN --(3)
 		pcheck1 <= pcheck1 + 1;
 		pcheck3 <= pcheck3 + 1;
+	ELSE
+		pcheck1 <= pcheck1;
+		pcheck3 <= pcheck3;
 	END IF;
-	IF (idata(N-8) = '0' or idata(N-8) = '1' ) THEN --(2)
+
+	IF (idata(N-8) = '0') or (idata(N-8) = '1' ) THEN --(2)
 		pcheck1 <= pcheck1 + 1;
 		pcheck3 <= pcheck3 + 1;
 		pcheck5 <= pcheck5 + 1;
-	END IF;
-	IF (idata(N-9) = '0' or idata(N-9) = '1' ) THEN --(1)
-		pcheck3 <= pcheck3 + 1;
-		pcheck4 <= pcheck4 + 1;
-		pcheck5 <= pcheck5 + 1;	
+	ELSE
+		pcheck1 <= pcheck1;
+		pcheck3 <= pcheck3;
+		pcheck5 <= pcheck5;
 
 	END IF;
-	IF (idata(N-10) = '0' or idata(N-10) = '1' ) THEN --(0)
+	IF (idata(N-9) = '0') or (idata(N-9) = '1' ) THEN --(1)
+		pcheck3 <= pcheck3 + 1;
+		pcheck4 <= pcheck4 + 1;
+		pcheck5 <= pcheck5 + 1;
+	ELSE	
+		pcheck3 <= pcheck3;
+		pcheck4 <= pcheck4;
+		pcheck5 <= pcheck5;
+
+	END IF;
+	IF (idata(N-10) = '0') or (idata(N-10) = '1' ) THEN --(0)
 		pcheck1 <= pcheck1 + 1;
 		pcheck2 <= pcheck2 + 1;
 		pcheck5 <= pcheck5 + 1;
+	ELSE
+		pcheck1 <= pcheck1;
+		pcheck2 <= pcheck2;
+		pcheck5 <= pcheck5;
 	END IF;
 
 	END IF;
@@ -279,6 +316,11 @@ BEGIN
 		verify_code <= '1'; -- All the bit are 0 or 1
 	ELSE
 		verify_code <= '0';
+		pcheck1 <= 0;
+		pcheck2 <= 0;
+		pcheck3 <= 0;
+		pcheck4 <= 0;
+		pcheck5 <= 0;
 	END IF;
 	END IF;
 
