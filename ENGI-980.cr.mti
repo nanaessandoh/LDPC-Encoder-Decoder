@@ -1,15 +1,4 @@
-{C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_Encoder.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity test_encoder
--- Compiling architecture behav of test_encoder
-
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_AWGN.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_AWGN.vhd}
+{C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -18,21 +7,10 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
 -- Loading package MATH_REAL
--- Compiling entity test_AWGN
--- Compiling architecture behav of test_AWGN
+-- Compiling entity Message_Passing
+-- Compiling architecture behav of Message_Passing
 
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Encoder.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Compiling entity encoder
--- Compiling architecture behav of encoder
-
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/AWGN.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/AWGN.vhd}
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_AWGN.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_AWGN.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -44,7 +22,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity AWGN
 -- Compiling architecture behav of AWGN
 
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd}
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -53,22 +31,10 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
 -- Loading package MATH_REAL
--- Compiling entity test_BitErasure
--- Compiling architecture behav of test_BitErasure
+-- Compiling entity Bit_Erasure
+-- Compiling architecture behav of Bit_Erasure
 
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Compiling entity BitErasure
--- Compiling architecture behav of BitErasure
-
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level.vhd}
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level_LDPC.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level_LDPC.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -79,6 +45,52 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package MATH_REAL
 -- Compiling entity Top_Level
 -- Compiling architecture behav of Top_Level
-** Warning: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level.vhd(46): (vcom-1090) Possible infinite loop: Process contains no WAIT statement.
+** Warning: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level_LDPC.vhd(46): (vcom-1090) Possible infinite loop: Process contains no WAIT statement.
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity test_encoder
+-- Compiling architecture behav of test_encoder
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity test_Bit_Erasure
+-- Compiling architecture behav of test_Bit_Erasure
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity test_AWGN
+-- Compiling architecture behav of test_AWGN
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity encoder
+-- Compiling architecture behav of encoder
 
 } {} {}}

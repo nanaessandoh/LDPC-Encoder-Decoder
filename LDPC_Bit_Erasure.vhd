@@ -5,7 +5,7 @@ USE IEEE.numeric_std.ALL;
 USE IEEE.math_real.all;
 
 
-ENTITY BitErasure IS
+ENTITY Bit_Erasure IS
 
 GENERIC(
 	-- Define Generics
@@ -27,11 +27,11 @@ PORT(
 	error_data : OUT std_logic_vector (N-1 downto 0)
 );
 
-END BitErasure ;
+END Bit_Erasure ;
 
 
 
-ARCHITECTURE behav OF BitErasure IS
+ARCHITECTURE behav OF Bit_Erasure IS
 
 -- Define State of the State Machine
 TYPE state_type IS (ONRESET, IDLE,GEN_ERROR,ADD_ERROR, VERIFY,ERROR,DONE);

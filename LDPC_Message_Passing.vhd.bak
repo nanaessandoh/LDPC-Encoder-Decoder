@@ -5,7 +5,7 @@ USE IEEE.numeric_std.ALL;
 USE IEEE.math_real.all;
 
 
-ENTITY Decoder IS
+ENTITY Message_Passing IS
 
 GENERIC(
 	-- Define Generics
@@ -27,11 +27,11 @@ PORT(
 	odata : OUT std_logic_vector (N-1 downto 0)
 );
 
-END Decoder;
+END Message_Passing;
 
 
 
-ARCHITECTURE behav OF Decoder IS
+ARCHITECTURE behav OF Message_Passing IS
 
 -- Define State of the State Machine
 TYPE state_type IS (ONRESET,IDLE,PARITY_COUNT,PARITY_ONE,PARITY_TWO,PARITY_THREE,PARITY_FOUR,PARITY_FIVE, CODE_CHECK, DONE);
@@ -45,7 +45,8 @@ SIGNAL pcheck2 : integer; -- Eqn 2
 SIGNAL pcheck3 : integer; -- Eqn 3
 SIGNAL pcheck4 : integer; -- Eqn 4
 SIGNAL pcheck5 : integer; -- Eqn 5
-SIGNAL verify_code: std_logic; -- Signals if no X or U exist in the code
+SIGNAL fix_count : integer; -- Hold the count of 0 and 1 in the code
+SIGNAL verify_code: std_logic; -- Signals if any of the bits is not 0 or 1
 SIGNAL idata : std_logic_vector (N-1 downto 0);
 
 
@@ -194,13 +195,13 @@ BEGIN
 
 	IF ( current_state = PARITY_ONE) THEN	
 
-	IF( idata(N-1) = 'X' or idata(N-1) = 'U') THEN 			--(9)
+	IF( idata(N-1) /= '0' or idata(N-1) /= '1') THEN 		--(9)
 	idata(N-1) <=  idata(N-7) xor idata(N-8) xor idata(N-10);
-	ELSIF( idata(N-7) = 'X' or idata(N-7) = 'U') THEN		--(3)
+	ELSIF( idata(N-7) /= '0' or idata(N-7) /= '1') THEN		--(3)
 	idata(N-7) <=  idata(N-1) xor idata(N-8) xor idata(N-10);
-	ELSIF( idata(N-8) = 'X' or idata(N-8) = 'U') THEN		--(2)
+	ELSIF( idata(N-8) /= '0' or idata(N-8) /= '1') THEN		--(2)
 	idata(N-8) <=  idata(N-1) xor idata(N-7) xor idata(N-10);
-	ELSIF( idata(N-10) = 'X' or idata(N-10) = 'U') THEN		--(0)
+	ELSIF( idata(N-10) /= '0' xor idata(N-10) /= '1') THEN		--(0)
 	idata(N-10) <=  idata(N-1) xor idata(N-7) xor idata(N-8);
 	END IF;
 
@@ -209,11 +210,11 @@ BEGIN
 
 	IF ( current_state = PARITY_TWO) THEN	
 
-	IF( idata(N-2) = 'X' or idata(N-2) = 'U') THEN 			--(8)
+	IF( idata(N-2) /= '0' or idata(N-2) /= '1') THEN 		--(8)
 	idata(N-2) <=  idata(N-6) xor idata(N-10);
-	ELSIF( idata(N-6) = 'X' or idata(N-6) = 'U') THEN		--(4)
+	ELSIF( idata(N-6) /= '0' or idata(N-6) /= '1') THEN		--(4)
 	idata(N-6) <=  idata(N-2) xor idata(N-10);
-	ELSIF( idata(N-10) = 'X' or idata(N-10) = 'U') THEN		--(0)
+	ELSIF( idata(N-10) /= '0' or idata(N-10) /= '1') THEN		--(0)
 	idata(N-10) <=  idata(N-2) xor idata(N-6);
 	END IF;
 
@@ -222,15 +223,15 @@ BEGIN
 
 	IF ( current_state = PARITY_THREE) THEN	
 
-	IF( idata(N-3) /= 'X' or idata(N-3) /= 'U') THEN 			--(7)
+	IF( idata(N-3) /= '0' or idata(N-3) /= '1') THEN 			--(7)
 	idata(N-3) <=  idata(N-6) xor idata(N-7) xor idata(N-8) xor idata(N-9);
-	ELSIF( idata(N-6) = 'X' or idata(N-6) = 'U') THEN			--(4)
+	ELSIF( idata(N-6) /= '0' or idata(N-6) /= '1') THEN			--(4)
 	idata(N-6) <=  idata(N-3) xor idata(N-7) xor idata(N-8) xor idata(N-9);
-	ELSIF( idata(N-7) = 'X' or idata(N-7) = 'U') THEN			--(3)
+	ELSIF( idata(N-7) /= '0' or idata(N-7) /= '1') THEN			--(3)
 	idata(N-7) <=  idata(N-3) xor idata(N-6) xor idata(N-8) xor idata(N-9);
-	ELSIF( idata(N-8) = 'X' or idata(N-8) = 'U') THEN			--(2)
+	ELSIF( idata(N-8) /= '0' or idata(N-8) /= '1') THEN			--(2)
 	idata(N-8) <=  idata(N-3) xor idata(N-6) xor idata(N-7) xor idata(N-9);
-	ELSIF( idata(N-9) = 'X' or idata(N-9) = 'U') THEN			--(1)
+	ELSIF( idata(N-9) /= '0' or idata(N-9) /= '1') THEN			--(1)
 	idata(N-9) <=  idata(N-3) xor idata(N-6) xor idata(N-7) xor idata(N-8);
 	END IF;
 
@@ -239,11 +240,11 @@ BEGIN
 
 	IF ( current_state = PARITY_FOUR) THEN	
 
-	IF( idata(N-4) = 'X' or idata(N-4) = 'U') THEN 			--(6)
+	IF( idata(N-4) /= '0' or idata(N-4) /= '1') THEN 		--(6)
 	idata(N-4) <=  idata(N-6) xor idata(N-9);
-	ELSIF( idata(N-6) = 'X' or idata(N-6) = 'U') THEN		--(4)
+	ELSIF( idata(N-6) /= '0' or idata(N-6) /= '1') THEN		--(4)
 	idata(N-6) <=  idata(N-4) xor idata(N-9);
-	ELSIF( idata(N-9) = 'X' or idata(N-9) = 'U') THEN		--(1)
+	ELSIF( idata(N-9) /= '0' or idata(N-9) /= '1') THEN		--(1)
 	idata(N-9) <=  idata(N-4) xor idata(N-6);
 	END IF;
 
@@ -253,13 +254,13 @@ BEGIN
 
 	IF ( current_state = PARITY_FIVE) THEN	
 
-	IF( idata(N-5) = 'X' or idata(N-5) = 'U') THEN 			--(5)
+	IF( idata(N-5) /= '0' or idata(N-5) /= '1') THEN 		--(5)
 	idata(N-5) <=  idata(N-8) xor idata(N-9) xor idata(N-10);
-	ELSIF( idata(N-8) = 'X' or idata(N-8) = 'U') THEN		--(2)
+	ELSIF( idata(N-8) /= '0' or idata(N-8) /= '1') THEN		--(2)
 	idata(N-8) <=  idata(N-5) xor idata(N-9) xor idata(N-10);
-	ELSIF( idata(N-9) = 'X' or idata(N-9) = 'U') THEN		--(1)
+	ELSIF( idata(N-9) /= '0' or idata(N-9) /= '1') THEN		--(1)
 	idata(N-9) <=  idata(N-5) xor idata(N-8) xor idata(N-10);
-	ELSIF( idata(N-10) = 'X' or idata(N-10) = 'U') THEN		--(0)
+	ELSIF( idata(N-10) /= '0' or idata(N-10) /= '1') THEN		--(0)
 	idata(N-10) <=  idata(N-5) xor idata(N-8) xor idata(N-9);
 	END IF;
 
@@ -268,11 +269,26 @@ BEGIN
 
 	IF ( current_state = CODE_CHECK) THEN
 	--- Use a loop here
+	FOR I IN 1 TO 10 LOOP
+	IF (idata(N-I) = '0' or idata(N-I) = '1') THEN
+	fix_count <= fix_count + 1;
+	END IF;
+	END LOOP;
+
+	IF (fix_count = 10) THEN  
+		verify_code <= '1'; -- All the bit are 0 or 1
+	ELSE
+		verify_code <= '0';
+	END IF;
 	END IF;
 
 
 	IF ( current_state = DONE) THEN
-
+		msg_pass_done <= '1';
+		odata <= idata;
+	ELSE 
+		msg_pass_done <= '0';
+		odata <= "UUUUUUUUUU";
 	END IF;
 
 	END PROCESS combinational;
