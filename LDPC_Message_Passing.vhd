@@ -114,15 +114,15 @@ BEGIN
 		next_state <= P_CNT10;
 
 	WHEN P_CNT10 =>
-	IF (pcheck1 = 1) THEN
+	IF (pcheck1/2 = 1) THEN
 		next_state <= P_ONE;
-	ELSIF(pcheck2 = 1) THEN
+	ELSIF(pcheck2/2 = 1) THEN
 		next_state <= P_TWO;
-	ELSIF(pcheck3 = 1) THEN
+	ELSIF(pcheck3/2 = 1) THEN
 		next_state <= P_THREE;
-	ELSIF(pcheck4 = 1) THEN
+	ELSIF(pcheck4/2 = 1) THEN
 		next_state <= P_FOUR;
-	ELSIF(pcheck5 = 1) THEN
+	ELSIF(pcheck5/2 = 1) THEN
 		next_state <= P_FIVE;
 	ELSE
 		next_state <= ERROR;
@@ -130,13 +130,13 @@ BEGIN
 
 --------------------------------------------------------
 	WHEN P_ONE =>
-	IF(pcheck2 = 1) THEN
+	IF(pcheck2/2 = 1) THEN
 		next_state <= P_TWO;
-	ELSIF(pcheck3 = 1) THEN
+	ELSIF(pcheck3/2 = 1) THEN
 		next_state <= P_THREE;
-	ELSIF(pcheck4 = 1) THEN
+	ELSIF(pcheck4/2 = 1) THEN
 		next_state <= P_FOUR;
-	ELSIF(pcheck5 = 1) THEN
+	ELSIF(pcheck5/2 = 1) THEN
 		next_state <= P_FIVE;
 	ELSE
 		next_state <= CODE_CHECK;
@@ -145,11 +145,11 @@ BEGIN
 
 
 	WHEN P_TWO =>
-	IF(pcheck3 = 1) THEN
+	IF(pcheck3/2 = 1) THEN
 		next_state <= P_THREE;
-	ELSIF(pcheck4 = 1) THEN
+	ELSIF(pcheck4/2 = 1) THEN
 		next_state <= P_FOUR;
-	ELSIF(pcheck5 = 1) THEN
+	ELSIF(pcheck5/2 = 1) THEN
 		next_state <= P_FIVE;
 	ELSE
 		next_state <= CODE_CHECK;
@@ -158,9 +158,9 @@ BEGIN
 
 
 	WHEN P_THREE =>
-	IF(pcheck4 = 1) THEN
+	IF(pcheck4/2 = 1) THEN
 		next_state <= P_FOUR;
-	ELSIF(pcheck5 = 1) THEN
+	ELSIF(pcheck5/2 = 1) THEN
 		next_state <= P_FIVE;
 	ELSE
 		next_state <= CODE_CHECK;
@@ -169,7 +169,7 @@ BEGIN
 ------------------------------------------------------------
 
 	WHEN P_FOUR =>
-	IF(pcheck5 = 1) THEN
+	IF(pcheck5/2 = 1) THEN
 		next_state <= P_FIVE;
 	ELSE
 		next_state <= CODE_CHECK;
@@ -464,6 +464,8 @@ BEGIN
 	FOR I IN 1 TO 10 LOOP
 	IF (idata(N-I) = '0') or (idata(N-I) = '1') THEN
 	fix_count <= fix_count + 1;
+	ELSE
+	fix_count <= fix_count;
 	END IF;
 	END LOOP;
 	END IF;
