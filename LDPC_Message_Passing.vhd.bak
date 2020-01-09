@@ -464,6 +464,8 @@ BEGIN
 	FOR I IN 1 TO 10 LOOP
 	IF (idata(N-I) = '0') or (idata(N-I) = '1') THEN
 	fix_count <= fix_count + 1;
+	ELSE
+	fix_count <= fix_count;
 	END IF;
 	END LOOP;
 	END IF;

@@ -234,22 +234,31 @@ BEGIN
 	IF (current_state = P_CNT1) THEN
 	
 	IF (idata(N-1) = '0') THEN
-	    pcheck1 <= pcheck1;
+		pcheck2 <= pcheck2;
+		pcheck3 <= pcheck3;
+		pcheck5 <= pcheck5;
         ELSIF (idata(N-1) = '1' ) THEN
-		pcheck1 <= pcheck1;
+		pcheck2 <= pcheck2;
+		pcheck3 <= pcheck3;
+		pcheck5 <= pcheck5;
 	ELSE
-		pcheck1 <= pcheck1 + 1;
+		pcheck2 <= pcheck2 + 1;
+		pcheck3 <= pcheck3 + 1;
+		pcheck5 <= pcheck5 + 1;
 	END IF;
 	END IF;
 ---------------------------------------------------------------(8)
 	IF (current_state = P_CNT2) THEN
 	
 	IF (idata(N-2) = '0') THEN
-	    pcheck1 <= pcheck1;
+	    	pcheck1 <= pcheck1;
+		pcheck5 <= pcheck5;
         ELSIF (idata(N-2) = '1' ) THEN
-		pcheck2 <= pcheck2;
+	    	pcheck1 <= pcheck1;
+		pcheck5 <= pcheck5;
 	ELSE
-		pcheck2 <= pcheck2 + 1;
+		pcheck1 <= pcheck1 + 1;
+		pcheck5 <= pcheck5 + 1;
 	END IF;
 	END IF;
 ---------------------------------------------------------------(7)
@@ -257,11 +266,20 @@ BEGIN
 	IF (current_state = P_CNT3) THEN
 	
 	IF (idata(N-3) = '0') THEN
-	    pcheck3 <= pcheck3;
+		pcheck1 <= pcheck1;
+		pcheck2 <= pcheck2;
+	    	pcheck3 <= pcheck3;
+		pcheck4 <= pcheck4;
         ELSIF (idata(N-3) = '1' ) THEN
-		pcheck3 <= pcheck3;
+		pcheck1 <= pcheck1;
+		pcheck2 <= pcheck2;
+	    	pcheck3 <= pcheck3;
+		pcheck4 <= pcheck4;
 	ELSE
-		pcheck3 <= pcheck3 + 1;
+		pcheck1 <= pcheck1 + 1;
+		pcheck2 <= pcheck2 + 1;
+	    	pcheck3 <= pcheck3 + 1;
+		pcheck4 <= pcheck4 + 1;
 	END IF;
 	END IF;
 
@@ -270,10 +288,13 @@ BEGIN
 	IF (current_state = P_CNT4) THEN
 	
 	IF (idata(N-4) = '0') THEN
-	    pcheck4 <= pcheck4;
+		pcheck1 <= pcheck1;
+		pcheck4 <= pcheck4;
         ELSIF (idata(N-4) = '1' ) THEN
+		pcheck1 <= pcheck1;
 		pcheck4 <= pcheck4;
 	ELSE
+		pcheck1 <= pcheck1 + 1;
 		pcheck4 <= pcheck4 + 1;
 	END IF;
 	END IF;
@@ -283,10 +304,16 @@ BEGIN
 	IF (current_state = P_CNT5) THEN
 	
 	IF (idata(N-5) = '0') THEN
-	    pcheck5 <= pcheck5;
+		pcheck3 <= pcheck3;
+		pcheck4 <= pcheck4;
+		pcheck5 <= pcheck5;
         ELSIF (idata(N-5) = '1' ) THEN
+	    	pcheck3 <= pcheck3;
+		pcheck4 <= pcheck4;
 		pcheck5 <= pcheck5;
 	ELSE
+	    	pcheck3 <= pcheck3 + 1;
+		pcheck4 <= pcheck4 + 1;
 		pcheck5 <= pcheck5 + 1;
 	END IF;
 	END IF;
@@ -296,17 +323,11 @@ BEGIN
 	IF (current_state = P_CNT6) THEN
 	
 	IF (idata(N-6) = '0') THEN
-	    	pcheck2 <= pcheck2;
-		pcheck3 <= pcheck3;
-		pcheck4 <= pcheck4;
+	    	pcheck1 <= pcheck1;
         ELSIF (idata(N-6) = '1' ) THEN
-		pcheck2 <= pcheck2;
-		pcheck3 <= pcheck3;
-		pcheck4 <= pcheck4;
+		pcheck1 <= pcheck1;
 	ELSE
-		pcheck2 <= pcheck2 + 1;
-		pcheck3 <= pcheck3 + 1;
-		pcheck4 <= pcheck4 + 1;
+		pcheck1 <= pcheck1 + 1;
 	END IF;
 	END IF;
 
@@ -315,14 +336,11 @@ BEGIN
 	IF (current_state = P_CNT7) THEN
 	
 	IF (idata(N-7) = '0') THEN
-	    	pcheck1 <= pcheck1;
-		pcheck3 <= pcheck3;
+	    	pcheck2 <= pcheck2;
         ELSIF (idata(N-7) = '1' ) THEN
-		pcheck1 <= pcheck1;
-		pcheck3 <= pcheck3;
+		pcheck2 <= pcheck2;
 	ELSE
-		pcheck1 <= pcheck1 + 1;
-		pcheck3 <= pcheck3 + 1;
+		pcheck2 <= pcheck2 + 1;
 	END IF;
 	END IF;
 --------------------------------------------------------------------(2)
@@ -330,17 +348,11 @@ BEGIN
 	IF (current_state = P_CNT8) THEN
 	
 	IF (idata(N-8) = '0') THEN
-	    	pcheck1 <= pcheck1;
 		pcheck3 <= pcheck3;
-		pcheck5 <= pcheck5;
         ELSIF (idata(N-8) = '1' ) THEN
-		pcheck1 <= pcheck1;
 		pcheck3 <= pcheck3;
-		pcheck5 <= pcheck5;
 	ELSE
-		pcheck1 <= pcheck1 + 1;
 		pcheck3 <= pcheck3 + 1;
-		pcheck5 <= pcheck5 + 1;
 	END IF;
 	END IF;
 
@@ -349,17 +361,11 @@ BEGIN
 	IF (current_state = P_CNT9) THEN
 	
 	IF (idata(N-9) = '0') THEN
-	    	pcheck3 <= pcheck3;
 		pcheck4 <= pcheck4;
-		pcheck5 <= pcheck5;
         ELSIF (idata(N-9) = '1' ) THEN
-		pcheck3 <= pcheck3;
 		pcheck4 <= pcheck4;
-		pcheck5 <= pcheck5;
 	ELSE
-		pcheck3 <= pcheck3 + 1;
 		pcheck4 <= pcheck4 + 1;
-		pcheck5 <= pcheck5 + 1;
 	END IF;
 	END IF;
 
@@ -368,16 +374,10 @@ BEGIN
 	IF (current_state = P_CNT10) THEN
 	
 	IF (idata(N-10) = '0') THEN
-	    	pcheck1 <= pcheck1;
-		pcheck2 <= pcheck2;
 		pcheck5 <= pcheck5;
         ELSIF (idata(N-10) = '1' ) THEN
-		pcheck1 <= pcheck1;
-		pcheck2 <= pcheck2;
 		pcheck5 <= pcheck5;
 	ELSE
-		pcheck1 <= pcheck1 + 1;
-		pcheck2 <= pcheck2 + 1;
 		pcheck5 <= pcheck5 + 1;
 	END IF;
 	END IF;
@@ -387,14 +387,14 @@ BEGIN
 
 	IF ( current_state = P_ONE) THEN	
 
-	IF( idata(N-1) /= '0') and (idata(N-1) /= '1') THEN 		--(9)
-	idata(N-1) <=  idata(N-7) xor idata(N-8) xor idata(N-10);
-	ELSIF( idata(N-7) = '0') or (idata(N-7) /= '1') THEN		--(3)
-	idata(N-7) <=  idata(N-1) xor idata(N-8) xor idata(N-10);
-	ELSIF( idata(N-8) /= '0') or (idata(N-8) /= '1') THEN		--(2)
-	idata(N-8) <=  idata(N-1) xor idata(N-7) xor idata(N-10);
-	ELSIF( idata(N-10) /= '0') or (idata(N-10) /= '1') THEN		--(0)
-	idata(N-10) <=  idata(N-1) xor idata(N-7) xor idata(N-8);
+	IF( idata(N-2) /= '0') and (idata(N-2) /= '1') THEN 		--(8)
+	idata(N-2) <=  idata(N-3) xor idata(N-4) xor idata(N-6);
+	ELSIF( idata(N-3) = '0') or (idata(N-3) /= '1') THEN		--(7)
+	idata(N-3) <=  idata(N-2) xor idata(N-4) xor idata(N-6);
+	ELSIF( idata(N-4) /= '0') or (idata(N-4) /= '1') THEN		--(6)
+	idata(N-4) <=  idata(N-2) xor idata(N-3) xor idata(N-6);
+	ELSIF( idata(N-6) /= '0') or (idata(N-6) /= '1') THEN		--(4)
+	idata(N-6) <=  idata(N-2) xor idata(N-3) xor idata(N-4);
 	END IF;
 
 	END IF;
@@ -402,12 +402,12 @@ BEGIN
 
 	IF ( current_state = P_TWO) THEN	
 
-	IF( idata(N-2) /= '0') or (idata(N-2) /= '1') THEN 		--(8)
-	idata(N-2) <=  idata(N-6) xor idata(N-10);
-	ELSIF( idata(N-6) /= '0') or (idata(N-6) /= '1') THEN		--(4)
-	idata(N-6) <=  idata(N-2) xor idata(N-10);
-	ELSIF( idata(N-10) /= '0') or (idata(N-10) /= '1') THEN		--(0)
-	idata(N-10) <=  idata(N-2) xor idata(N-6);
+	IF( idata(N-1) /= '0') or (idata(N-1) /= '1') THEN 		--(9)
+	idata(N-1) <=  idata(N-3) xor idata(N-7);
+	ELSIF( idata(N-3) /= '0') or (idata(N-3) /= '1') THEN		--(7)
+	idata(N-3) <=  idata(N-1) xor idata(N-7);
+	ELSIF( idata(N-7) /= '0') or (idata(N-7) /= '1') THEN		--(3)
+	idata(N-7) <=  idata(N-1) xor idata(N-3);
 	END IF;
 
 	END IF;
@@ -415,16 +415,14 @@ BEGIN
 
 	IF ( current_state = P_THREE) THEN	
 
-	IF( idata(N-3) /= '0') or (idata(N-3) /= '1') THEN 			--(7)
-	idata(N-3) <=  idata(N-6) xor idata(N-7) xor idata(N-8) xor idata(N-9);
-	ELSIF( idata(N-6) /= '0') and (idata(N-6) /= '1') THEN			--(4)
-	idata(N-6) <=  idata(N-3) xor idata(N-7) xor idata(N-8) xor idata(N-9);
-	ELSIF( idata(N-7) /= '0') and (idata(N-7) /= '1') THEN			--(3)
-	idata(N-7) <=  idata(N-3) xor idata(N-6) xor idata(N-8) xor idata(N-9);
+	IF( idata(N-1) /= '0') or (idata(N-1) /= '1') THEN 			--(9)
+	idata(N-1) <=  idata(N-3) xor idata(N-5) xor idata(N-8);
+	ELSIF( idata(N-3) /= '0') and (idata(N-3) /= '1') THEN			--(7)
+	idata(N-3) <=  idata(N-1) xor idata(N-5) xor idata(N-8);
+	ELSIF( idata(N-5) /= '0') and (idata(N-5) /= '1') THEN			--(5)
+	idata(N-5) <=  idata(N-1) xor idata(N-3) xor idata(N-8);
 	ELSIF( idata(N-8) /= '0') and (idata(N-8) /= '1') THEN			--(2)
-	idata(N-8) <=  idata(N-3) xor idata(N-6) xor idata(N-7) xor idata(N-9);
-	ELSIF( idata(N-9) /= '0') and (idata(N-9) /= '1') THEN			--(1)
-	idata(N-9) <=  idata(N-3) xor idata(N-6) xor idata(N-7) xor idata(N-8);
+	idata(N-8) <=  idata(N-1) xor idata(N-3) xor idata(N-5);
 	END IF;
 
 	END IF;
@@ -432,12 +430,14 @@ BEGIN
 
 	IF ( current_state = P_FOUR) THEN	
 
-	IF( idata(N-4) /= '0') and (idata(N-4) /= '1') THEN 		--(6)
-	idata(N-4) <=  idata(N-6) xor idata(N-9);
-	ELSIF( idata(N-6) /= '0') and (idata(N-6) /= '1') THEN		--(4)
-	idata(N-6) <=  idata(N-4) xor idata(N-9);
+	IF( idata(N-3) /= '0') and (idata(N-3) /= '1') THEN 		--(7)
+	idata(N-3) <=  idata(N-4) xor idata(N-5) xor idata(N-9);
+	ELSIF( idata(N-4) /= '0') and (idata(N-4) /= '1') THEN		--(6)
+	idata(N-4) <=  idata(N-3) xor idata(N-5) xor idata(N-9);
+	ELSIF( idata(N-5) /= '0') and (idata(N-5) /= '1') THEN		--(5)
+	idata(N-5) <=  idata(N-3) xor idata(N-4) xor idata(N-9);
 	ELSIF( idata(N-9) /= '0') and (idata(N-9) /= '1') THEN		--(1)
-	idata(N-9) <=  idata(N-4) xor idata(N-6);
+	idata(N-9) <=  idata(N-3) xor idata(N-4) xor idata(N-5);
 	END IF;
 
 	END IF;
@@ -446,14 +446,14 @@ BEGIN
 
 	IF ( current_state = P_FIVE) THEN	
 
-	IF( idata(N-5) /= '0') and (idata(N-5) /= '1') THEN 		--(5)
-	idata(N-5) <=  idata(N-8) xor idata(N-9) xor idata(N-10);
-	ELSIF( idata(N-8) /= '0') and (idata(N-8) /= '1') THEN		--(2)
-	idata(N-8) <=  idata(N-5) xor idata(N-9) xor idata(N-10);
-	ELSIF( idata(N-9) /= '0') and (idata(N-9) /= '1') THEN		--(1)
-	idata(N-9) <=  idata(N-5) xor idata(N-8) xor idata(N-10);
+	IF( idata(N-1) /= '0') and (idata(N-1) /= '1') THEN 		--(9)
+	idata(N-1) <=  idata(N-2) xor idata(N-5) xor idata(N-10);
+	ELSIF( idata(N-2) /= '0') and (idata(N-2) /= '1') THEN		--(8)
+	idata(N-2) <=  idata(N-1) xor idata(N-5) xor idata(N-10);
+	ELSIF( idata(N-5) /= '0') and (idata(N-5) /= '1') THEN		--(5)
+	idata(N-5) <=  idata(N-1) xor idata(N-2) xor idata(N-10);
 	ELSIF( idata(N-10) /= '0') and (idata(N-10) /= '1') THEN	--(0)
-	idata(N-10) <=  idata(N-5) xor idata(N-8) xor idata(N-9);
+	idata(N-10) <=  idata(N-1) xor idata(N-2) xor idata(N-5);
 	END IF;
 
 	END IF;
