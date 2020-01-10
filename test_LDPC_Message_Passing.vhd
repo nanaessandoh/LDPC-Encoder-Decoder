@@ -112,7 +112,7 @@ BEGIN
 	
 
 
-	WAIT FOR 250 ns;
+	WAIT FOR 300 ns;
 
 
 	isop_i	<= '1';
@@ -121,7 +121,7 @@ BEGIN
 	isop_i	<= '0';
 
 
-	WAIT FOR 250 ns;
+	WAIT FOR 300 ns;
 
 	isop_i	<= '1';
 	error_data_i	<= ("0101X000XX"); --  Original Codeword 0101000011
