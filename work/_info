@@ -25,9 +25,9 @@ VO@PB]gmln9?lBQRmEXTnK0
 !s100 1JA[TBo3J9bYoNi_?egac1
 Z10 OV;C;10.5b;63
 32
-Z11 !s110 1578675136
+Z11 !s110 1578775229
 !i10b 1
-Z12 !s108 1578675136.000000
+Z12 !s108 1578775229.000000
 Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_AWGN.vhd|
 Z14 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_AWGN.vhd|
 !i113 1
@@ -72,11 +72,11 @@ VH_UbPHTCie=81Af3SoWP[0
 !s100 6S[<]5Bdk=G5gIfE@Y@;d1
 R10
 32
-R11
+Z20 !s110 1578775230
 !i10b 1
-R12
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd|
-Z21 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd|
+Z21 !s108 1578775230.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd|
+Z23 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd|
 !i113 1
 R15
 R16
@@ -94,16 +94,16 @@ VkV?mg=acVDg4>36`TlXGc3
 !s100 W92Fm=a<ioBJZ1@F1zzMj3
 R10
 32
-R11
-!i10b 1
-R12
 R20
+!i10b 1
 R21
+R22
+R23
 !i113 1
 R15
 R16
 Ebiterasure
-Z22 w1576888694
+Z24 w1576888694
 R1
 R2
 R3
@@ -111,19 +111,19 @@ R4
 R5
 R6
 R7
-Z23 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd
-Z24 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd
+Z25 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd
+Z26 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd
 l0
 L8
 VG@^nNc4g5o59@eLo:3Qm_1
 !s100 0lDz5F7hF7BnATloQiDnX2
 R10
 32
-Z25 !s110 1578579669
+Z27 !s110 1578579669
 !i10b 1
-Z26 !s108 1578579669.000000
-Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd|
-Z28 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd|
+Z28 !s108 1578579669.000000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd|
+Z30 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/BitErasure.vhd|
 !i113 1
 R15
 R16
@@ -141,16 +141,16 @@ VF4@90O:51M7XmjW6S[dPQ1
 !s100 MI;V5Q2Dmmlcg3=cbz1D<3
 R10
 32
-R25
-!i10b 1
-R26
 R27
+!i10b 1
 R28
+R29
+R30
 !i113 1
 R15
 R16
 Edecoder
-Z29 w1578579715
+Z31 w1578579715
 R1
 R2
 R3
@@ -158,19 +158,19 @@ R4
 R5
 R6
 R7
-Z30 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd
-Z31 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd
+Z32 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd
+Z33 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd
 l0
 L8
 VZbEMSCW;gz@eHAQXXHZca2
 !s100 64WQB90Y[NA8P7dOYLRN52
 R10
 32
-Z32 !s110 1578579892
+Z34 !s110 1578579892
 !i10b 1
-Z33 !s108 1578579892.000000
-Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd|
-Z35 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd|
+Z35 !s108 1578579892.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd|
+Z37 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Decoder.vhd|
 !i113 1
 R15
 R16
@@ -188,35 +188,35 @@ V?lD?JWKUeUfgfUh1D08052
 !s100 Y2KFlomWnWOH>zDl3cg:V0
 R10
 32
-R32
-!i10b 1
-R33
 R34
+!i10b 1
 R35
+R36
+R37
 !i113 1
 R15
 R16
 Eencoder
-Z36 w1578610491
+Z38 w1578610491
 R2
 R4
 R3
 R5
 R6
 R7
-Z37 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd
-Z38 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd
+Z39 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd
+Z40 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd
 l0
 L9
 VTEiA1Fn6@Vh6ieamCoJK>3
 !s100 2jb^XPQ[9fW<WL^jjJ>V=2
 R10
 32
-R11
+R20
 !i10b 1
-R12
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd|
-Z40 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd|
+R21
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd|
+Z42 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd|
 !i113 1
 R15
 R16
@@ -233,16 +233,16 @@ VBN]Y39gGbQBdiaV]j595J2
 !s100 i6:N>lWL@>NSfUfK0a<D?3
 R10
 32
-R11
+R20
 !i10b 1
-R12
-R39
-R40
+R21
+R41
+R42
 !i113 1
 R15
 R16
 Emessage_passing
-Z41 w1578675132
+Z43 w1578773467
 R1
 R2
 R3
@@ -250,19 +250,19 @@ R4
 R5
 R6
 R7
-Z42 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd
-Z43 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd
+Z44 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd
+Z45 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd
 l0
 L8
 V0M?6;FFMf6_V82P[QBbWW3
 !s100 7IPP9lS_ol6:Nl[ImoF300
 R10
 32
-R11
+R20
 !i10b 1
-R12
-Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd|
-Z45 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd|
+R21
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd|
+Z47 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd|
 !i113 1
 R15
 R16
@@ -276,20 +276,20 @@ R6
 DEx4 work 15 message_passing 0 22 0M?6;FFMf6_V82P[QBbWW3
 l52
 L34
-VC6jO[X_Y5BWCRCPeiR@hQ1
-!s100 3FHX7ELHg1KSVQhY2T[EL2
+V8oknliVjf>lWhS?59nn7G0
+!s100 R_5iO<@[UAzLOWX6c4WCE1
 R10
 32
-R11
+R20
 !i10b 1
-R12
-R44
-R45
+R21
+R46
+R47
 !i113 1
 R15
 R16
 Etest_awgn
-Z46 w1574073098
+Z48 w1574073098
 R1
 R2
 R4
@@ -297,19 +297,19 @@ R3
 R5
 R6
 R7
-Z47 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd
-Z48 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd
+Z49 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd
+Z50 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd
 l0
 L9
 VJM5kNCS]aTj5V?F?^d8l`1
 !s100 `9QO`A:Toob=CE<SAaMc61
 R10
 32
-R11
+R20
 !i10b 1
-R12
-Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd|
-Z50 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd|
+R21
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd|
+Z52 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_AWGN.vhd|
 !i113 1
 R15
 R16
@@ -327,16 +327,16 @@ V4LJ_IBaA4gWN6jKg<6ZOC3
 !s100 YAR<WI1]VHR@m=Q6QaReD2
 R10
 32
-R11
+R20
 !i10b 1
-R12
-R49
-R50
+R21
+R51
+R52
 !i113 1
 R15
 R16
 Etest_bit_erasure
-Z51 w1578580276
+Z53 w1578580276
 R1
 R2
 R4
@@ -344,19 +344,19 @@ R3
 R5
 R6
 R7
-Z52 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd
-Z53 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd
+Z54 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd
+Z55 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd
 l0
 L9
 Vfc>I`3mV@n[UkOe9hUOBT3
 !s100 6D:JDfDdRHnTImD5Z:@7Y0
 R10
 32
-R11
+R20
 !i10b 1
-R12
-Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd|
-Z55 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd|
+R21
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd|
+Z57 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Bit_Erasure.vhd|
 !i113 1
 R15
 R16
@@ -374,16 +374,16 @@ V6Hjgcn395=L:OR9JB=;iS3
 !s100 j]8L98VcQPz4T=Zf6`[A@2
 R10
 32
-R11
+R20
 !i10b 1
-R12
-R54
-R55
+R21
+R56
+R57
 !i113 1
 R15
 R16
 Etest_biterasure
-Z56 w1578580238
+Z58 w1578580238
 R1
 R2
 R4
@@ -391,19 +391,19 @@ R3
 R5
 R6
 R7
-Z57 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd
-Z58 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd
+Z59 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd
+Z60 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd
 l0
 L9
 VP7nVU>>m;IXmdj7E;8RQU0
 !s100 z`GjmMRofPLYSkHQbkL:S2
 R10
 32
-Z59 !s110 1578580242
+Z61 !s110 1578580242
 !i10b 1
-Z60 !s108 1578580242.000000
-Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd|
-Z62 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd|
+Z62 !s108 1578580242.000000
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd|
+Z64 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_BitErasure.vhd|
 !i113 1
 R15
 R16
@@ -421,35 +421,35 @@ VGF?h56Fj29nQk=[TU6Y<I3
 !s100 YNLPAU`WSjkS3;?V<Rhnm2
 R10
 32
-R59
-!i10b 1
-R60
 R61
+!i10b 1
 R62
+R63
+R64
 !i113 1
 R15
 R16
 Etest_encoder
-Z63 w1574074221
+Z65 w1574074221
 R2
 R4
 R3
 R5
 R6
 R7
-Z64 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd
-Z65 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd
+Z66 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd
+Z67 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd
 l0
 L7
 V=77_48loalOji]RO:4P]U2
 !s100 0G50E4blO6^20>>V;jIUd0
 R10
 32
-R11
+R20
 !i10b 1
-R12
-Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd|
-Z67 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd|
+R21
+Z68 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd|
+Z69 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd|
 !i113 1
 R15
 R16
@@ -466,16 +466,16 @@ V6K7H[UdB`<OJE>Z>5gLg[2
 !s100 M=^F[K>a3?m@NaIIUSEFQ1
 R10
 32
-R11
+R20
 !i10b 1
-R12
-R66
-R67
+R21
+R68
+R69
 !i113 1
 R15
 R16
 Etest_message_passing
-Z68 w1578620834
+Z70 w1578775214
 R1
 R2
 R4
@@ -483,19 +483,19 @@ R3
 R5
 R6
 R7
-Z69 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd
-Z70 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd
+Z71 8C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd
+Z72 FC:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd
 l0
 L9
 V[CE2`>fmYO:0DCS;goZfP1
 !s100 RD708Rjf^kX8IYz]`nV=N0
 R10
 32
-R11
+R20
 !i10b 1
-R12
-Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd|
-Z72 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd|
+R21
+Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd|
+Z74 !s107 C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Message_Passing.vhd|
 !i113 1
 R15
 R16
@@ -506,18 +506,18 @@ R4
 R3
 R5
 R6
-Z73 DEx4 work 20 test_message_passing 0 22 [CE2`>fmYO:0DCS;goZfP1
+Z75 DEx4 work 20 test_message_passing 0 22 [CE2`>fmYO:0DCS;goZfP1
 l51
 L19
-Z74 VZ>`c]mPe259lB9hd@i;240
-Z75 !s100 I^RIW6EkEO`fSnccoZA^Q0
+VTEeG`18@Ibh0R6I;j2idT2
+!s100 Q=QZDAnl2jlbN2_hb0>F]0
 R10
 32
-!s110 1578675137
+R20
 !i10b 1
-R12
-R71
-R72
+R21
+R73
+R74
 !i113 1
 R15
 R16
