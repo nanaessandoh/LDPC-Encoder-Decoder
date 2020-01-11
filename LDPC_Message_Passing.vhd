@@ -34,7 +34,7 @@ END Message_Passing;
 ARCHITECTURE behav OF Message_Passing IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET,IDLE,PARITY_CHK1,PARITY_CHK2,PARITY_CHK3,PARITY_CHK4,FIX_1,FIX_2,FIX_3,FIX_4,FIX_5, CODE_CHECK, VERIFY, ERROR, DONE);
+TYPE state_type IS (ONRESET,IDLE,PARITY_CHK1,PARITY_CHK2,PARITY_CHK3,PARITY_CHK4,FIX_1,FIX_2,FIX_3,FIX_4,FIX_5, CODE_CHECK, VERIFY, ERROR,D1,D2,D3,D4, DONE);
 
 -- Define States
 SIGNAL current_state, next_state : state_type;
@@ -82,13 +82,27 @@ BEGIN
 
 	
 	WHEN PARITY_CHK1 =>
+	--	next_state <= PARITY_CHK2;
+		next_state <= D1;
+
+	WHEN D1 =>
 		next_state <= PARITY_CHK2;
+		
 
 	WHEN PARITY_CHK2 =>
-		next_state <= PARITY_CHK3;
+       	--	next_state <= PARITY_CHK3;
+		next_state <= D2;
 
+	WHEN D2 =>
+	--	next_state <= PARITY_CHK3;
+		next_state <= D3;
+	
 	WHEN PARITY_CHK3 =>
 		next_state <= PARITY_CHK4;
+
+	WHEN D4 =>
+	--	next_state <= PARITY_CHK3;
+		next_state <= D4;
 
 	WHEN PARITY_CHK4 =>
 	IF (pcheck1= 1.0) THEN

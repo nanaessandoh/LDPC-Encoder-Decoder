@@ -167,7 +167,7 @@ BEGIN
 	IF(verify_code = '1') THEN
 		next_state <= DONE;
 	ELSE
-		next_state <= ERROR;
+		next_state <= PARITY_CHK1;
 	END IF;
 ------------------------------------------------------------
 	WHEN ERROR =>
