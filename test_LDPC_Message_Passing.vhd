@@ -110,8 +110,6 @@ BEGIN
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	
-
-
 	WAIT FOR 250 ns;
 
 
@@ -120,7 +118,6 @@ BEGIN
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 
-
 	WAIT FOR 250 ns;
 
 	isop_i	<= '1';
@@ -128,7 +125,7 @@ BEGIN
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 
-
+	WAIT FOR 250 ns;
 
 	END PROCESS Do_Test;
 
