@@ -6,19 +6,19 @@ USE IEEE.numeric_std.ALL;
 USE IEEE.math_real.all;
 
 
-ENTITY test_New_Message IS
+ENTITY test_Test IS
 GENERIC(
 	-- Define Generics
 	 N :natural := 10 -- Length of Codeword Bits
 );
 
-END test_New_Message;
+END test_Test;
 
 
 
-ARCHITECTURE behav OF test_New_Message IS
+ARCHITECTURE behav OF test_Test IS
 
-COMPONENT New_Message IS
+COMPONENT Test IS
 
 PORT(
 	-- Clock and Reset
@@ -79,7 +79,7 @@ BEGIN
 
     
 	-- Port Map Declaration
-	test: New_Message 	PORT MAP( 	clk => clk_i,
+	myTest: Test 	PORT MAP( 	clk => clk_i,
 				       		rstb => rstb_i,
 						isop => isop_i
 				        );
@@ -96,22 +96,7 @@ BEGIN
 	isop_i	<= '0';
 	
 
-
 	WAIT FOR 100 ns;
-
-
-	isop_i	<= '1';
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
-
-
-	WAIT FOR 100 ns;
-
-	isop_i	<= '1';	
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
-
-
 
 	END PROCESS Do_Test;
 

@@ -67,8 +67,8 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
 -- Loading package MATH_REAL
--- Compiling entity New_Message
--- Compiling architecture behav of New_Message
+-- Compiling entity Test
+-- Compiling architecture behav of Test
 
 } {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016

@@ -30,20 +30,14 @@ END New_Message;
 ARCHITECTURE behav OF New_Message IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET, IDLE,CHECK1, CHECK2, CHECK3, CHECK4, DONE);
+TYPE state_type IS (ONRESET, IDLE, ONE, TWO, DONE);
 
 -- Define States
 SIGNAL current_state, next_state : state_type;
 
 -- Define Signals
--- Define Signals
-SIGNAL pcheck1 : integer; --Counts the number of Error in each P Check Eqn 1
-SIGNAL pcheck2 : integer; -- Eqn 2
-SIGNAL pcheck3 : integer; -- Eqn 3
-SIGNAL pcheck4 : integer; -- Eqn 4
-SIGNAL pcheck5 : integer; -- Eqn 5
-
-
+SIGNAL check1 : integer; 
+SIGNAL check2 : integer; 
 
 
 BEGIN
@@ -71,23 +65,18 @@ BEGIN
 
 	WHEN IDLE =>
 	IF( isop = '1') THEN
-	next_state <= CHECK1;
+	next_state <= ONE;
 	ELSE
 	next_state <= IDLE;
 	END IF;
 
 
-	WHEN CHECK1 =>
-	next_state <= CHECK2;
+	WHEN ONE =>
+	next_state <= TWO;
 
-	WHEN CHECK2 =>
-	next_state <= CHECK3;
-
-	WHEN CHECK3 =>
-	next_state <= CHECK4;
-
-	WHEN CHECK4 =>
+	WHEN TWO =>
 	next_state <= DONE;
+
 
 	WHEN DONE =>
 	next_state <= ONRESET;
@@ -105,32 +94,19 @@ BEGIN
 	PROCESS(clk,rstb)
 	BEGIN
 
-	CASE current_state IS
+	IF (current_state = IDLE ) THEN
+		check1 <= 0;
+		check2 <= 0;
+	END IF;
+	
+	IF (current_state = ONE  ) THEN
+		check1 <= check1 + 1;
+	END IF;
 
+	IF (current_state = TWO ) THEN
+		check2 <= check2 + 2;
+	END IF;
 
-	WHEN IDLE =>
-		pcheck1 <= 0;
-		pcheck2 <= 0;
-		pcheck3 <= 0;
-		pcheck4 <= 0;
-		pcheck5 <= 0;
-
-
-	WHEN CHECK1 =>
-		pcheck1 <= pcheck1 + 1;
-
-	WHEN CHECK2 =>
-		pcheck2 <= pcheck2 + 1;
-
-	WHEN CHECK3 =>
-		pcheck3 <= pcheck3 + 1;
-
-	WHEN CHECK4 =>
-		pcheck4 <=  pcheck4 + 1;	
-
-	WHEN DONE =>
-
-	END CASE;
 	END PROCESS combinational;
 
 
