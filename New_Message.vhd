@@ -54,59 +54,44 @@ BEGIN
 
 
 	sequential:
-	PROCESS(clk,rstb)
+	PROCESS(clk,rstb,isop)
 	BEGIN
 
-	CASE current_state IS
 	
+	IF (current_state = ONRESET) THEN
+		check1 <= 0;
+		check2 <= 0;
+		next_state <= IDLE;
 
-	WHEN ONRESET =>
-	next_state <= IDLE;
 
-	WHEN IDLE =>
+	ELSIF (clk'EVENT and clk = '1') THEN
+
+	IF (current_state = IDLE) THEN
 	IF( isop = '1') THEN
 	next_state <= ONE;
 	ELSE
 	next_state <= IDLE;
 	END IF;
+	
 
-
-	WHEN ONE =>
+	ELSIF(current_state = ONE) THEN
+	check1 <= check1 + 1;
 	next_state <= TWO;
 
-	WHEN TWO =>
+	ELSIF(current_state = TWO) THEN
+	check2 <= check2 + 1;
 	next_state <= DONE;
 
-
-	WHEN DONE =>
+	ELSIF(current_state = DONE) THEN
 	next_state <= ONRESET;
 
-	WHEN OTHERS =>
+	ELSE
 	next_state <= ONRESET;
 
-
-	END CASE;
+	END IF;
+	END IF;
 	END PROCESS sequential;
 
 
-
-	combinational:
-	PROCESS(clk,rstb)
-	BEGIN
-
-	IF (current_state = IDLE ) THEN
-		check1 <= 0;
-		check2 <= 0;
-	END IF;
-	
-	IF (current_state = ONE  ) THEN
-		check1 <= check1 + 1;
-	END IF;
-
-	IF (current_state = TWO ) THEN
-		check2 <= check2 + 2;
-	END IF;
-
-	END PROCESS combinational;
 
 END behav;

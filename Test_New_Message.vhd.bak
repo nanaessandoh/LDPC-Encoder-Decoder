@@ -79,7 +79,7 @@ BEGIN
 
     
 	-- Port Map Declaration
-	test: New_Message 	PORT MAP( 	clk => clk_i,
+	myTest: Test 	PORT MAP( 	clk => clk_i,
 				       		rstb => rstb_i,
 						isop => isop_i
 				        );
@@ -90,6 +90,7 @@ BEGIN
 
 	
 	WAIT FOR 20 ns;
+
 
 	isop_i	<= '1';
         WAIT FOR 15 ns;
