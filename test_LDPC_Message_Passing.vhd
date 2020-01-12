@@ -103,10 +103,10 @@ BEGIN
 	BEGIN
 
 	
-	WAIT FOR 20 ns;
+	WAIT FOR 10 ns;
 
 	isop_i	<= '1';
-	error_data_i	<= ("0101X000XX"); --  Original Codeword 0101000011
+	error_data_i	<= ("00X010X1X1"); -- Original Codeword 0000100111	
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	
@@ -124,7 +124,7 @@ BEGIN
 	WAIT FOR 250 ns;
 
 	isop_i	<= '1';
-	error_data_i	<= ("00X010X1X1"); -- Original Codeword 0000100111	
+	error_data_i	<= ("0101X000XX"); --  Original Codeword 0101000011
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 

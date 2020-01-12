@@ -34,7 +34,7 @@ END Message_Passing;
 ARCHITECTURE behav OF Message_Passing IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET,IDLE,PARITY_CHK1,PARITY_CHK2,PARITY_CHK3,PARITY_CHK4,FIX_1,FIX_2,FIX_3,FIX_4,FIX_5, CODE_CHECK, VERIFY, ERROR, DONE);
+TYPE state_type IS (ONRESET, IDLE, PARITY_CHK1, PARITY_CHK2, PARITY_CHK3, PARITY_CHK4, HOLD, FIX_1, FIX_2, FIX_3, FIX_4, FIX_5, CODE_CHECK, VERIFY, ERROR, DONE);
 
 -- Define States
 SIGNAL current_state, next_state : state_type;
@@ -65,121 +65,126 @@ BEGIN
 
 
 	sequential:
-	PROCESS(clk,rstb)
+	PROCESS(isop, pcheck1,pcheck2,pcheck3,pcheck4,pcheck5)
 	BEGIN
 
 	CASE current_state IS
 	
 	WHEN ONRESET =>
-		next_state <= IDLE;
+	next_state <= IDLE;
 
 	WHEN IDLE =>
 	IF( isop = '1') THEN
-		next_state <= PARITY_CHK1;
+	next_state <= PARITY_CHK1;
 	ELSE
-		next_state <= IDLE;
+	next_state <= IDLE;
 	END IF;
 
-	
 	WHEN PARITY_CHK1 =>
-		next_state <= PARITY_CHK2;
+	next_state <= PARITY_CHK2;	
 
 	WHEN PARITY_CHK2 =>
-		next_state <= PARITY_CHK3;
-
+      	next_state <= PARITY_CHK3;	
+	
 	WHEN PARITY_CHK3 =>
-		next_state <= PARITY_CHK4;
+	next_state <= PARITY_CHK4;
 
 	WHEN PARITY_CHK4 =>
+	next_state <= HOLD;
+--------------------------------------------------------------
+-- At Hold we have determined the number of errors based on the
+-- parity check equations so we can process to fix the error
+--------------------------------------------------------------
+	WHEN HOLD => 
 	IF (pcheck1= 1.0) THEN
-		next_state <= FIX_1;
+	next_state <= FIX_1;
 	ELSIF (pcheck2 = 1.0) THEN
-		next_state <= FIX_2;
+	next_state <= FIX_2;
 	ELSIF (pcheck3 = 1.0) THEN
-		next_state <= FIX_3;
+	next_state <= FIX_3;
 	ELSIF (pcheck4 = 1.0) THEN
-		next_state <= FIX_4;
+	next_state <= FIX_4;
 	ELSIF (pcheck5 = 1.0) THEN
-		next_state <= FIX_5;
+	next_state <= FIX_5;
 	ELSIF (pcheck1= 0.0) and (pcheck2= 0.0) and (pcheck3= 0.0) and (pcheck4= 0.0) and (pcheck5= 0.0) THEN
-		next_state <= DONE;
+	next_state <= DONE;
 	ELSE
-		next_state <= ERROR;
+	next_state <= ERROR;
 	END IF;
 
 --------------------------------------------------------
 	WHEN FIX_1 =>
 	IF(pcheck2 = 1.0) THEN
-		next_state <= FIX_2;
+	next_state <= FIX_2;
 	ELSIF(pcheck3 = 1.0) THEN
-		next_state <= FIX_3;
+	next_state <= FIX_3;
 	ELSIF(pcheck4 = 1.0) THEN
-		next_state <= FIX_4;
+	next_state <= FIX_4;
 	ELSIF(pcheck5 = 1.0) THEN
-		next_state <= FIX_5;
+	next_state <= FIX_5;
 	ELSE
-		next_state <= CODE_CHECK;
+	next_state <= CODE_CHECK;
 	END IF;
 ----------------------------------------------------------
 
 
 	WHEN FIX_2 =>
 	IF(pcheck3 = 1.0) THEN
-		next_state <= FIX_3;
+	next_state <= FIX_3;
 	ELSIF(pcheck4 = 1.0) THEN
-		next_state <= FIX_4;
+	next_state <= FIX_4;
 	ELSIF(pcheck5 = 1.0) THEN
-		next_state <= FIX_5;
+	next_state <= FIX_5;
 	ELSE
-		next_state <= CODE_CHECK;
+	next_state <= CODE_CHECK;
 	END IF;
 -----------------------------------------------------------
 
 
 	WHEN FIX_3 =>
 	IF(pcheck4 = 1.0) THEN
-		next_state <= FIX_4;
+	next_state <= FIX_4;
 	ELSIF(pcheck5 = 1.0) THEN
-		next_state <= FIX_5;
+	next_state <= FIX_5;
 	ELSE
-		next_state <= CODE_CHECK;
+	next_state <= CODE_CHECK;
 	END IF;
 	
 ------------------------------------------------------------
 
 	WHEN FIX_4 =>
 	IF(pcheck5 = 1.0) THEN
-		next_state <= FIX_5;
+	next_state <= FIX_5;
 	ELSE
-		next_state <= CODE_CHECK;
+	next_state <= CODE_CHECK;
 	END IF;
 
 -----------------------------------------------------------
 	WHEN FIX_5 =>
-		next_state <= CODE_CHECK;
+	next_state <= CODE_CHECK;
 ----------------------------------------------------------
 
 	WHEN CODE_CHECK =>
-		next_state <= VERIFY;
+	next_state <= VERIFY;
 -----------------------------------------------------------
 
 	WHEN VERIFY =>
 	IF(verify_code = '1') THEN
-		next_state <= DONE;
+	next_state <= DONE;
 	ELSE
-		next_state <= PARITY_CHK1;
+	next_state <= PARITY_CHK1;
 	END IF;
 ------------------------------------------------------------
 	WHEN ERROR =>
-		next_state <= ONRESET;
+	next_state <= IDLE;
 
 
 	WHEN DONE =>
-		next_state <= ONRESET;
+	next_state <= ONRESET;
 
 
 	WHEN OTHERS =>
-		next_state <= ONRESET;
+	next_state <= ONRESET;
 
 
 	END CASE;
@@ -195,7 +200,7 @@ BEGIN
 	IF ( current_state = ONRESET) THEN
  		odata <= "UUUUUUUUUU" ;
 		msg_pass_done <= 'U';
-		verify_code<= '0'; 
+		verify_code<= 'U'; 
 		
 	END IF;
 
@@ -216,7 +221,7 @@ BEGIN
 	
 
 
-	IF (idata(N-1) = 'X') or (idata(N-1) = 'U')  THEN
+	IF  (idata(N-1) /= '0') and (idata(N-1) /= '1')  THEN
 		pcheck2 <= pcheck2 + 0.5;
 		pcheck3 <= pcheck3 + 0.5;
 		pcheck5 <= pcheck5 + 0.5;
@@ -226,7 +231,7 @@ BEGIN
 		pcheck5 <= pcheck5;
 	END IF;
 
-	IF (idata(N-4) = 'X') or (idata(N-4) = 'U')  THEN
+	IF  (idata(N-4) /= '0') and (idata(N-4) /= '1')  THEN
 		pcheck1 <= pcheck1 + 0.5;
 		pcheck4 <= pcheck4 + 0.5;
 	ELSE
@@ -239,7 +244,7 @@ BEGIN
 ---------------------------------------------------------------(8) (3) (2) and (1)
 	IF (current_state = PARITY_CHK2) THEN
 	
-	IF (idata(N-2) = 'X') or (idata(N-2) = 'U')  THEN
+	IF  (idata(N-2) /= '0') and (idata(N-2) /= '1')  THEN
 		pcheck1 <= pcheck1 + 0.5;
 		pcheck5 <= pcheck5 + 0.5;
 	ELSE
@@ -247,19 +252,19 @@ BEGIN
 		pcheck5 <= pcheck5;
 	END IF;
 
-	IF (idata(N-7) = 'X') or (idata(N-7) = 'U') THEN
+	IF  (idata(N-7) /= '0') and (idata(N-7) /= '1') THEN
 		pcheck2 <= pcheck2 + 0.5;
 	ELSE
 		pcheck2 <= pcheck2;
 	END IF;
 
-	IF (idata(N-8) = 'X') or (idata(N-8) = 'U') THEN
+	IF  (idata(N-8) /= '0') and (idata(N-8) /= '1') THEN
 		pcheck3 <= pcheck3 + 0.5;
 	ELSE
 		pcheck3 <= pcheck3;
 	END IF;
 
-	IF (idata(N-9) = 'X') or (idata(N-9) = 'U') THEN
+	IF  (idata(N-9) /= '0') and (idata(N-9) /= '1') THEN
 		pcheck4 <= pcheck4 + 0.5;
 	ELSE
 		pcheck4 <= pcheck4;
@@ -271,7 +276,7 @@ BEGIN
 
 	IF (current_state = PARITY_CHK3) THEN
 	
-	IF (idata(N-3) = 'X') or (idata(N-3) = 'U')  THEN
+	IF  (idata(N-3) /= '0') and (idata(N-3) /= '1') THEN
 		pcheck1 <= pcheck1 + 0.5;
 		pcheck2 <= pcheck2 + 0.5;
 	    	pcheck3 <= pcheck3 + 0.5;
@@ -283,7 +288,7 @@ BEGIN
 		pcheck4 <= pcheck4;
 	END IF;
 
-	IF (idata(N-10) = 'X') or (idata(N-5) = 'U') THEN
+	IF  (idata(N-10) /= '0') and (idata(N-10) /= '1') THEN
 		pcheck5 <= pcheck5 + 0.5;
 	ELSE
 		pcheck5 <= pcheck5;
@@ -295,7 +300,7 @@ BEGIN
 
 	IF (current_state = PARITY_CHK4) THEN
 	
-	IF (idata(N-5) = 'X') or (idata(N-5) = 'U') THEN
+	IF  (idata(N-5) /= '0') and (idata(N-5) /= '1') THEN
 	    	pcheck3 <= pcheck3 + 0.5;
 		pcheck4 <= pcheck4 + 0.5;
 		pcheck5 <= pcheck5 + 0.5;
@@ -305,7 +310,7 @@ BEGIN
 		pcheck5 <= pcheck5;
 	END IF;
 
-	IF (idata(N-6) = 'X') or (idata(N-6) = 'U') THEN
+	IF  (idata(N-6) /= '0') and (idata(N-6) /= '1') THEN
 		pcheck1 <= pcheck1 + 0.5;
 	ELSE
 		pcheck1 <= pcheck1;
@@ -316,9 +321,9 @@ BEGIN
 -----------------------------------------------------------------------------
 
 
-	IF ( current_state = FIX_1) THEN	
+	IF (current_state = FIX_1) THEN	
 
-	IF( idata(N-2) /= '0') and (idata(N-2) /= '1') THEN 		--(8)
+	IF (idata(N-2) /= '0') and (idata(N-2) /= '1') THEN 		--(8)
 	idata(N-2) <=  idata(N-3) xor idata(N-4) xor idata(N-6);
 	ELSIF( idata(N-3) = '0') and (idata(N-3) /= '1') THEN		--(7)
 	idata(N-3) <=  idata(N-2) xor idata(N-4) xor idata(N-6);
