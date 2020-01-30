@@ -157,10 +157,8 @@ BEGIN
 
 	WHEN BIT_FLIP =>
 	next_state <= PARITY_CHECK;
------------------------------------------------------------
 
-
-
+---------------------------------------------------
 	WHEN BIT_DECODE =>
 	next_state <= ONRESET;
 
@@ -178,17 +176,23 @@ BEGIN
 	combinational:
 	PROCESS(clk, rstb)	
 	BEGIN
+	
+	IF ( clk'EVENT and clk = '1') THEN
 
 	IF ( current_state = ONRESET) THEN
  		odata <= (OTHERS => 'U') ;
 		msg_decode_done <= 'U';
-		idata <= input_data;
+		Parity1 <= 'U';
+		Parity2 <= 'U';
+		Parity3 <= 'U';
+		Parity4 <= 'U';
+		Parity5 <= 'U';
 	END IF;
 
-	--IF (current_state = IDLE) THEN
-	--	idata <= input_data;
+	IF (current_state = IDLE) THEN
+		idata <= input_data;
 				
-	--END IF;
+	END IF;
 
 -------------------------------------------------------------
 	IF (current_state = PARITY_CHECK) THEN
@@ -199,16 +203,16 @@ BEGIN
 	Parity4 <= idata(N-3) xor idata(N-4) xor idata(N-5) xor idata(N-9);
 	Parity5 <= idata(N-1) xor idata(N-2) xor idata(N-5) xor idata(N-10);
 
-		Bit1 <= 0.0;
-		Bit2 <= 0.0;
-		Bit3 <= 0.0;
-		Bit4 <= 0.0;
-		Bit5 <= 0.0;
-		Bit6 <= 0.0;
-		Bit7 <= 0.0;
-		Bit8 <= 0.0;
-		Bit9 <= 0.0;
-		Bit10 <= 0.0;
+	Bit1 <= 0.0;
+	Bit2 <= 0.0;
+	Bit3 <= 0.0;
+	Bit4 <= 0.0;
+	Bit5 <= 0.0;
+	Bit6 <= 0.0;
+	Bit7 <= 0.0;
+	Bit8 <= 0.0;
+	Bit9 <= 0.0;
+	Bit10 <= 0.0;
 
 	END IF;
 -----------------------------------------------------------------------------
@@ -264,12 +268,13 @@ BEGIN
 
 
 	IF ( current_state = BIT_FLIP) THEN
+
 	
 	--9
 	IF ((Bit1>Bit2)and(Bit1>Bit3)and(Bit1>Bit4)and(Bit1>Bit5)and(Bit1>Bit6)and(Bit1>Bit7)and(Bit1>Bit8)and(Bit1>Bit9)and(Bit1>Bit10)) THEN 
 	IF(idata(N-1) = '0') THEN
 	idata(N-1) <= '1';
-	ELSE
+	ELSIF (idata(N-1) = '1') THEN
 	idata(N-1) <= '0';
 	END IF;
 	
@@ -277,7 +282,7 @@ BEGIN
 	ELSIF ((Bit2>Bit1)and(Bit2>Bit3)and(Bit2>Bit4)and(Bit2>Bit5)and(Bit2>Bit6)and(Bit2>Bit7)and(Bit2>Bit8)and(Bit2>Bit9)and(Bit2>Bit10)) THEN 
 	IF(idata(N-2) = '0') THEN
 	idata(N-2) <= '1';
-	ELSE
+	ELSIF (idata(N-2) = '1') THEN
 	idata(N-2) <= '0';
 	END IF;
 	
@@ -285,7 +290,7 @@ BEGIN
 	ELSIF ((Bit3>Bit1)and(Bit3>Bit2)and(Bit3>Bit4)and(Bit3>Bit5)and(Bit3>Bit6)and(Bit3>Bit7)and(Bit3>Bit8)and(Bit3>Bit9)and(Bit3>Bit10)) THEN 
 	IF(idata(N-3) = '0') THEN
 	idata(N-3) <= '1';
-	ELSE
+	ELSIF (idata(N-3) = '1') THEN
 	idata(N-3) <= '0';
 	END IF;
 
@@ -293,7 +298,7 @@ BEGIN
 	ELSIF ((Bit4>Bit1)and(Bit4>Bit2)and(Bit4>Bit3)and(Bit4>Bit5)and(Bit4>Bit6)and(Bit4>Bit7)and(Bit4>Bit8)and(Bit4>Bit9)and(Bit4>Bit10)) THEN 
 	IF(idata(N-4) = '0') THEN
 	idata(N-4) <= '1';
-	ELSE
+	ELSIF (idata(N-4) = '1') THEN
 	idata(N-4) <= '0';
 	END IF;
 
@@ -301,7 +306,7 @@ BEGIN
 	ELSIF ((Bit5>Bit1)and(Bit5>Bit2)and(Bit5>Bit3)and(Bit5>Bit4)and(Bit5>Bit6)and(Bit5>Bit7)and(Bit5>Bit8)and(Bit5>Bit9)and(Bit5>Bit10)) THEN 
 	IF(idata(N-5) = '0') THEN
 	idata(N-5) <= '1';
-	ELSE
+	ELSIF (idata(N-5) = '1') THEN
 	idata(N-5) <= '0';
 	END IF;
 
@@ -309,7 +314,7 @@ BEGIN
 	ELSIF ((Bit6>Bit1)and(Bit6>Bit2)and(Bit6>Bit3)and(Bit6>Bit4)and(Bit6>Bit5)and(Bit6>Bit7)and(Bit6>Bit8)and(Bit6>Bit9)and(Bit6>Bit10)) THEN 
 	IF(idata(N-6) = '0') THEN
 	idata(N-6) <= '1';
-	ELSE
+	ELSIF (idata(N-6) = '1') THEN
 	idata(N-6) <= '0';
 	END IF;
 
@@ -317,7 +322,7 @@ BEGIN
 	ELSIF ((Bit7>Bit1)and(Bit7>Bit2)and(Bit7>Bit3)and(Bit7>Bit4)and(Bit7>Bit5)and(Bit7>Bit6)and(Bit7>Bit8)and(Bit7>Bit9)and(Bit7>Bit10)) THEN 
 	IF(idata(N-7) = '0') THEN
 	idata(N-7) <= '1';
-	ELSE
+	ELSIF (idata(N-7) = '1') THEN
 	idata(N-7) <= '0';
 	END IF;
 
@@ -325,7 +330,7 @@ BEGIN
 	ELSIF ((Bit8>Bit1)and(Bit8>Bit2)and(Bit8>Bit3)and(Bit8>Bit4)and(Bit8>Bit5)and(Bit8>Bit6)and(Bit8>Bit7)and(Bit8>Bit9)and(Bit8>Bit10)) THEN 
 	IF(idata(N-8) = '0') THEN
 	idata(N-8) <= '1';
-	ELSE
+	ELSIF (idata(N-8) = '1') THEN
 	idata(N-8) <= '0';
 	END IF;
 
@@ -333,7 +338,7 @@ BEGIN
 	ELSIF ((Bit9>Bit1)and(Bit9>Bit2)and(Bit9>Bit3)and(Bit9>Bit4)and(Bit9>Bit5)and(Bit9>Bit6)and(Bit9>Bit7)and(Bit9>Bit8)and(Bit9>Bit10)) THEN 
 	IF(idata(N-9) = '0') THEN
 	idata(N-9) <= '1';
-	ELSE
+	ELSIF (idata(N-9) = '1') THEN
 	idata(N-9) <= '0';
 	END IF;
 
@@ -341,7 +346,7 @@ BEGIN
 	ELSIF ((Bit10>Bit1)and(Bit10>Bit2)and(Bit10>Bit3)and(Bit10>Bit4)and(Bit10>Bit5)and(Bit10>Bit6)and(Bit10>Bit7)and(Bit10>Bit8)and(Bit10>Bit9)) THEN 
 	IF(idata(N-10) = '0') THEN
 	idata(N-10) <= '1';
-	ELSE
+	ELSIF (idata(N-10) = '1') THEN
 	idata(N-10) <= '0';
 	END IF;
 
@@ -356,6 +361,7 @@ BEGIN
 	ELSE 
 		msg_decode_done <= '0';
 		odata <= (OTHERS => 'U');
+	END IF;
 	END IF;
 
 	END PROCESS combinational;
