@@ -177,7 +177,7 @@ BEGIN
 	PROCESS(clk, rstb)	
 	BEGIN
 	
-	IF ( clk'EVENT and clk = '1') THEN
+	IF ( clk'EVENT and clk = '0') THEN
 
 	IF ( current_state = ONRESET) THEN
  		odata <= (OTHERS => 'U') ;
@@ -274,71 +274,79 @@ BEGIN
 	IF ((Bit1>Bit2)and(Bit1>Bit3)and(Bit1>Bit4)and(Bit1>Bit5)and(Bit1>Bit6)and(Bit1>Bit7)and(Bit1>Bit8)and(Bit1>Bit9)and(Bit1>Bit10)) THEN 
 	IF(idata(N-1) = '0') THEN
 	idata(N-1) <= '1';
-	ELSIF (idata(N-1) = '1') THEN
+	ELSE
 	idata(N-1) <= '0';
+	END IF;
 	END IF;
 	
 	--8
-	ELSIF ((Bit2>Bit1)and(Bit2>Bit3)and(Bit2>Bit4)and(Bit2>Bit5)and(Bit2>Bit6)and(Bit2>Bit7)and(Bit2>Bit8)and(Bit2>Bit9)and(Bit2>Bit10)) THEN 
+	IF ((Bit2>Bit1)and(Bit2>Bit3)and(Bit2>Bit4)and(Bit2>Bit5)and(Bit2>Bit6)and(Bit2>Bit7)and(Bit2>Bit8)and(Bit2>Bit9)and(Bit2>Bit10)) THEN 
 	IF(idata(N-2) = '0') THEN
 	idata(N-2) <= '1';
-	ELSIF (idata(N-2) = '1') THEN
+	ELSE
 	idata(N-2) <= '0';
 	END IF;
-	
+	END IF;
+
 	--7
-	ELSIF ((Bit3>Bit1)and(Bit3>Bit2)and(Bit3>Bit4)and(Bit3>Bit5)and(Bit3>Bit6)and(Bit3>Bit7)and(Bit3>Bit8)and(Bit3>Bit9)and(Bit3>Bit10)) THEN 
+	IF ((Bit3>Bit1)and(Bit3>Bit2)and(Bit3>Bit4)and(Bit3>Bit5)and(Bit3>Bit6)and(Bit3>Bit7)and(Bit3>Bit8)and(Bit3>Bit9)and(Bit3>Bit10)) THEN 
 	IF(idata(N-3) = '0') THEN
 	idata(N-3) <= '1';
-	ELSIF (idata(N-3) = '1') THEN
+	ELSE
 	idata(N-3) <= '0';
+	END IF;
 	END IF;
 
 	--6
-	ELSIF ((Bit4>Bit1)and(Bit4>Bit2)and(Bit4>Bit3)and(Bit4>Bit5)and(Bit4>Bit6)and(Bit4>Bit7)and(Bit4>Bit8)and(Bit4>Bit9)and(Bit4>Bit10)) THEN 
+	IF ((Bit4>Bit1)and(Bit4>Bit2)and(Bit4>Bit3)and(Bit4>Bit5)and(Bit4>Bit6)and(Bit4>Bit7)and(Bit4>Bit8)and(Bit4>Bit9)and(Bit4>Bit10)) THEN 
 	IF(idata(N-4) = '0') THEN
 	idata(N-4) <= '1';
-	ELSIF (idata(N-4) = '1') THEN
+	ELSE
 	idata(N-4) <= '0';
+	END IF;
 	END IF;
 
 	--5
-	ELSIF ((Bit5>Bit1)and(Bit5>Bit2)and(Bit5>Bit3)and(Bit5>Bit4)and(Bit5>Bit6)and(Bit5>Bit7)and(Bit5>Bit8)and(Bit5>Bit9)and(Bit5>Bit10)) THEN 
+	IF ((Bit5>Bit1)and(Bit5>Bit2)and(Bit5>Bit3)and(Bit5>Bit4)and(Bit5>Bit6)and(Bit5>Bit7)and(Bit5>Bit8)and(Bit5>Bit9)and(Bit5>Bit10)) THEN 
 	IF(idata(N-5) = '0') THEN
 	idata(N-5) <= '1';
-	ELSIF (idata(N-5) = '1') THEN
+	ELSE
 	idata(N-5) <= '0';
+	END IF;
 	END IF;
 
 	--4
-	ELSIF ((Bit6>Bit1)and(Bit6>Bit2)and(Bit6>Bit3)and(Bit6>Bit4)and(Bit6>Bit5)and(Bit6>Bit7)and(Bit6>Bit8)and(Bit6>Bit9)and(Bit6>Bit10)) THEN 
+	IF ((Bit6>Bit1)and(Bit6>Bit2)and(Bit6>Bit3)and(Bit6>Bit4)and(Bit6>Bit5)and(Bit6>Bit7)and(Bit6>Bit8)and(Bit6>Bit9)and(Bit6>Bit10)) THEN 
 	IF(idata(N-6) = '0') THEN
 	idata(N-6) <= '1';
-	ELSIF (idata(N-6) = '1') THEN
+	ELSE
 	idata(N-6) <= '0';
+	END IF;
 	END IF;
 
 	--3
-	ELSIF ((Bit7>Bit1)and(Bit7>Bit2)and(Bit7>Bit3)and(Bit7>Bit4)and(Bit7>Bit5)and(Bit7>Bit6)and(Bit7>Bit8)and(Bit7>Bit9)and(Bit7>Bit10)) THEN 
+	IF ((Bit7>Bit1)and(Bit7>Bit2)and(Bit7>Bit3)and(Bit7>Bit4)and(Bit7>Bit5)and(Bit7>Bit6)and(Bit7>Bit8)and(Bit7>Bit9)and(Bit7>Bit10)) THEN 
 	IF(idata(N-7) = '0') THEN
 	idata(N-7) <= '1';
-	ELSIF (idata(N-7) = '1') THEN
+	ELSE
 	idata(N-7) <= '0';
+	END IF;
 	END IF;
 
 	--2
-	ELSIF ((Bit8>Bit1)and(Bit8>Bit2)and(Bit8>Bit3)and(Bit8>Bit4)and(Bit8>Bit5)and(Bit8>Bit6)and(Bit8>Bit7)and(Bit8>Bit9)and(Bit8>Bit10)) THEN 
+	IF ((Bit8>Bit1)and(Bit8>Bit2)and(Bit8>Bit3)and(Bit8>Bit4)and(Bit8>Bit5)and(Bit8>Bit6)and(Bit8>Bit7)and(Bit8>Bit9)and(Bit8>Bit10)) THEN 
 	IF(idata(N-8) = '0') THEN
 	idata(N-8) <= '1';
-	ELSIF (idata(N-8) = '1') THEN
+	ELSE
 	idata(N-8) <= '0';
+	END IF;
 	END IF;
 
 	--1
-	ELSIF ((Bit9>Bit1)and(Bit9>Bit2)and(Bit9>Bit3)and(Bit9>Bit4)and(Bit9>Bit5)and(Bit9>Bit6)and(Bit9>Bit7)and(Bit9>Bit8)and(Bit9>Bit10)) THEN 
+	IF ((Bit9>Bit1)and(Bit9>Bit2)and(Bit9>Bit3)and(Bit9>Bit4)and(Bit9>Bit5)and(Bit9>Bit6)and(Bit9>Bit7)and(Bit9>Bit8)and(Bit9>Bit10)) THEN 
 	IF(idata(N-9) = '0') THEN
 	idata(N-9) <= '1';
-	ELSIF (idata(N-9) = '1') THEN
+	ELSE
 	idata(N-9) <= '0';
 	END IF;
 
@@ -346,12 +354,12 @@ BEGIN
 	ELSIF ((Bit10>Bit1)and(Bit10>Bit2)and(Bit10>Bit3)and(Bit10>Bit4)and(Bit10>Bit5)and(Bit10>Bit6)and(Bit10>Bit7)and(Bit10>Bit8)and(Bit10>Bit9)) THEN 
 	IF(idata(N-10) = '0') THEN
 	idata(N-10) <= '1';
-	ELSIF (idata(N-10) = '1') THEN
+	ELSE
 	idata(N-10) <= '0';
 	END IF;
-
-	
 	END IF;
+
+
 	END IF;
 
 

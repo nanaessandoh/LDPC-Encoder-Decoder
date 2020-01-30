@@ -39,16 +39,16 @@ TYPE state_type IS (ONRESET, IDLE, PARITY_CHECK, BIT_ADD1, BIT_ADD2, BIT_ADD3, B
 SIGNAL current_state, next_state : state_type;
 
 -- Define Signals
-SIGNAL Bit1 : real; --Represent Each Bit Protection Equation
-SIGNAL Bit2 : real; -- Eqn 2
-SIGNAL Bit3 : real; -- Eqn 3
-SIGNAL Bit4 : real; -- Eqn 4
-SIGNAL Bit5 : real; -- Eqn 5
-SIGNAL Bit6 : real; -- Eqn 6
-SIGNAL Bit7 : real; -- Eqn 7
-SIGNAL Bit8 : real; -- Eqn 8
-SIGNAL Bit9 : real; -- Eqn 9
-SIGNAL Bit10 : real; -- Eqn 10
+SIGNAL Bit1 : integer; --Represent Each Bit Protection Equation
+SIGNAL Bit2 : integer; -- Eqn 2
+SIGNAL Bit3 : integer; -- Eqn 3
+SIGNAL Bit4 : integer; -- Eqn 4
+SIGNAL Bit5 : integer; -- Eqn 5
+SIGNAL Bit6 : integer; -- Eqn 6
+SIGNAL Bit7 : integer; -- Eqn 7
+SIGNAL Bit8 : integer; -- Eqn 8
+SIGNAL Bit9 : integer; -- Eqn 9
+SIGNAL Bit10 : integer; -- Eqn 10
 
 
 SIGNAL Parity1,Parity2,Parity3,Parity4,Parity5 : std_logic;
@@ -177,7 +177,7 @@ BEGIN
 	PROCESS(clk, rstb)	
 	BEGIN
 	
-	IF ( clk'EVENT and clk = '1') THEN
+	IF ( clk'EVENT and clk = '0') THEN
 
 	IF ( current_state = ONRESET) THEN
  		odata <= (OTHERS => 'U') ;
@@ -203,16 +203,16 @@ BEGIN
 	Parity4 <= idata(N-3) xor idata(N-4) xor idata(N-5) xor idata(N-9);
 	Parity5 <= idata(N-1) xor idata(N-2) xor idata(N-5) xor idata(N-10);
 
-	Bit1 <= 0.0;
-	Bit2 <= 0.0;
-	Bit3 <= 0.0;
-	Bit4 <= 0.0;
-	Bit5 <= 0.0;
-	Bit6 <= 0.0;
-	Bit7 <= 0.0;
-	Bit8 <= 0.0;
-	Bit9 <= 0.0;
-	Bit10 <= 0.0;
+	Bit1 <= 0;
+	Bit2 <= 0;
+	Bit3 <= 0;
+	Bit4 <= 0;
+	Bit5 <= 0;
+	Bit6 <= 0;
+	Bit7 <= 0;
+	Bit8 <= 0;
+	Bit9 <= 0;
+	Bit10 <= 0;
 
 	END IF;
 -----------------------------------------------------------------------------
@@ -220,47 +220,47 @@ BEGIN
 
 	IF (current_state = BIT_ADD1) THEN	
 
-	Bit2 <= Bit2 + 0.5;
-	Bit3 <= Bit3 + 0.5;
-	Bit4 <= Bit4 + 0.5;
-	Bit6 <= Bit6 + 0.5;
+	Bit2 <= Bit2 + 1;
+	Bit3 <= Bit3 + 1;
+	Bit4 <= Bit4 + 1;
+	Bit6 <= Bit6 + 1;
 
 	END IF;
 
 	IF (current_state = BIT_ADD2) THEN	
 
-	Bit1 <= Bit1 + 0.5;
-	Bit3 <= Bit3 + 0.5;
-	Bit7 <= Bit7 + 0.5;
+	Bit1 <= Bit1 + 1;
+	Bit3 <= Bit3 + 1;
+	Bit7 <= Bit7 + 1;
 
 	END IF;
 
 	IF (current_state = BIT_ADD3) THEN	
 
-	Bit1 <= Bit1 + 0.5;
-	Bit3 <= Bit3 + 0.5;
-	Bit5 <= Bit5 + 0.5;
-	Bit8 <= Bit8 + 0.5;
+	Bit1 <= Bit1 + 1;
+	Bit3 <= Bit3 + 1;
+	Bit5 <= Bit5 + 1;
+	Bit8 <= Bit8 + 1;
 
 	END IF;
 
 
 	IF (current_state = BIT_ADD4) THEN	
 
-	Bit3 <= Bit3 + 0.5;
-	Bit4 <= Bit4 + 0.5;
-	Bit5 <= Bit5 + 0.5;
-	Bit9 <= Bit9 + 0.5;
+	Bit3 <= Bit3 + 1;
+	Bit4 <= Bit4 + 1;
+	Bit5 <= Bit5 + 1;
+	Bit9 <= Bit9 + 1;
 
 	END IF;
 
 
 	IF (current_state = BIT_ADD5) THEN	
 
-	Bit1 <= Bit1 + 0.5;
-	Bit2 <= Bit2 + 0.5;
-	Bit5 <= Bit5 + 0.5;
-	Bit10 <= Bit10 + 0.5;
+	Bit1 <= Bit1 + 1;
+	Bit2 <= Bit2 + 1;
+	Bit5 <= Bit5 + 1;
+	Bit10 <= Bit10 + 1;
 
 	END IF;
 
@@ -274,7 +274,7 @@ BEGIN
 	IF ((Bit1>Bit2)and(Bit1>Bit3)and(Bit1>Bit4)and(Bit1>Bit5)and(Bit1>Bit6)and(Bit1>Bit7)and(Bit1>Bit8)and(Bit1>Bit9)and(Bit1>Bit10)) THEN 
 	IF(idata(N-1) = '0') THEN
 	idata(N-1) <= '1';
-	ELSIF (idata(N-1) = '1') THEN
+	ELSE
 	idata(N-1) <= '0';
 	END IF;
 	
@@ -282,7 +282,7 @@ BEGIN
 	ELSIF ((Bit2>Bit1)and(Bit2>Bit3)and(Bit2>Bit4)and(Bit2>Bit5)and(Bit2>Bit6)and(Bit2>Bit7)and(Bit2>Bit8)and(Bit2>Bit9)and(Bit2>Bit10)) THEN 
 	IF(idata(N-2) = '0') THEN
 	idata(N-2) <= '1';
-	ELSIF (idata(N-2) = '1') THEN
+	ELSE
 	idata(N-2) <= '0';
 	END IF;
 	
@@ -290,7 +290,7 @@ BEGIN
 	ELSIF ((Bit3>Bit1)and(Bit3>Bit2)and(Bit3>Bit4)and(Bit3>Bit5)and(Bit3>Bit6)and(Bit3>Bit7)and(Bit3>Bit8)and(Bit3>Bit9)and(Bit3>Bit10)) THEN 
 	IF(idata(N-3) = '0') THEN
 	idata(N-3) <= '1';
-	ELSIF (idata(N-3) = '1') THEN
+	ELSE
 	idata(N-3) <= '0';
 	END IF;
 
@@ -298,7 +298,7 @@ BEGIN
 	ELSIF ((Bit4>Bit1)and(Bit4>Bit2)and(Bit4>Bit3)and(Bit4>Bit5)and(Bit4>Bit6)and(Bit4>Bit7)and(Bit4>Bit8)and(Bit4>Bit9)and(Bit4>Bit10)) THEN 
 	IF(idata(N-4) = '0') THEN
 	idata(N-4) <= '1';
-	ELSIF (idata(N-4) = '1') THEN
+	ELSE
 	idata(N-4) <= '0';
 	END IF;
 
@@ -306,7 +306,7 @@ BEGIN
 	ELSIF ((Bit5>Bit1)and(Bit5>Bit2)and(Bit5>Bit3)and(Bit5>Bit4)and(Bit5>Bit6)and(Bit5>Bit7)and(Bit5>Bit8)and(Bit5>Bit9)and(Bit5>Bit10)) THEN 
 	IF(idata(N-5) = '0') THEN
 	idata(N-5) <= '1';
-	ELSIF (idata(N-5) = '1') THEN
+	ELSE
 	idata(N-5) <= '0';
 	END IF;
 
@@ -314,7 +314,7 @@ BEGIN
 	ELSIF ((Bit6>Bit1)and(Bit6>Bit2)and(Bit6>Bit3)and(Bit6>Bit4)and(Bit6>Bit5)and(Bit6>Bit7)and(Bit6>Bit8)and(Bit6>Bit9)and(Bit6>Bit10)) THEN 
 	IF(idata(N-6) = '0') THEN
 	idata(N-6) <= '1';
-	ELSIF (idata(N-6) = '1') THEN
+	ELSE
 	idata(N-6) <= '0';
 	END IF;
 
@@ -322,7 +322,7 @@ BEGIN
 	ELSIF ((Bit7>Bit1)and(Bit7>Bit2)and(Bit7>Bit3)and(Bit7>Bit4)and(Bit7>Bit5)and(Bit7>Bit6)and(Bit7>Bit8)and(Bit7>Bit9)and(Bit7>Bit10)) THEN 
 	IF(idata(N-7) = '0') THEN
 	idata(N-7) <= '1';
-	ELSIF (idata(N-7) = '1') THEN
+	ELSE
 	idata(N-7) <= '0';
 	END IF;
 
@@ -330,7 +330,7 @@ BEGIN
 	ELSIF ((Bit8>Bit1)and(Bit8>Bit2)and(Bit8>Bit3)and(Bit8>Bit4)and(Bit8>Bit5)and(Bit8>Bit6)and(Bit8>Bit7)and(Bit8>Bit9)and(Bit8>Bit10)) THEN 
 	IF(idata(N-8) = '0') THEN
 	idata(N-8) <= '1';
-	ELSIF (idata(N-8) = '1') THEN
+	ELSE
 	idata(N-8) <= '0';
 	END IF;
 
@@ -338,7 +338,7 @@ BEGIN
 	ELSIF ((Bit9>Bit1)and(Bit9>Bit2)and(Bit9>Bit3)and(Bit9>Bit4)and(Bit9>Bit5)and(Bit9>Bit6)and(Bit9>Bit7)and(Bit9>Bit8)and(Bit9>Bit10)) THEN 
 	IF(idata(N-9) = '0') THEN
 	idata(N-9) <= '1';
-	ELSIF (idata(N-9) = '1') THEN
+	ELSE
 	idata(N-9) <= '0';
 	END IF;
 
@@ -346,7 +346,7 @@ BEGIN
 	ELSIF ((Bit10>Bit1)and(Bit10>Bit2)and(Bit10>Bit3)and(Bit10>Bit4)and(Bit10>Bit5)and(Bit10>Bit6)and(Bit10>Bit7)and(Bit10>Bit8)and(Bit10>Bit9)) THEN 
 	IF(idata(N-10) = '0') THEN
 	idata(N-10) <= '1';
-	ELSIF (idata(N-10) = '1') THEN
+	ELSE
 	idata(N-10) <= '0';
 	END IF;
 

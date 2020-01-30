@@ -105,11 +105,8 @@ BEGIN
 
 
 	END CASE;
-
-
-
-
 	END PROCESS sequential;
+
 
 	clock_state_machine:
 	PROCESS(clk,rstb)
@@ -119,9 +116,8 @@ BEGIN
 	ELSIF (clk'EVENT and clk = '1') THEN
 	current_state <= next_state;
 	END IF;
-
-
 	END PROCESS clock_state_machine;
+
 
 	combinational:
 	PROCESS(clk, rstb)
