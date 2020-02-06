@@ -40,12 +40,12 @@ SIGNAL current_state, next_state : state_type;
 
 -- Define Signals
 SIGNAL B1_2,B1_3,B1_4,B1_6 : std_logic; --Represent Each Bit Protection Equation
-SIGNAL B2_1,B2_3,B2_7,  : std_logic;
+SIGNAL B2_1,B2_3,B2_7  : std_logic;
 SIGNAL B3_1,B3_3,B3_5,B3_8 : std_logic;
 SIGNAL B4_3,B4_4,B4_5,B4_9 : std_logic;
 SIGNAL B5_1,B5_2,B5_5,B5_10 : std_logic;
 
-SIGNAL idata : std_logic_vector (N-1 downto 0);
+SIGNAL idata, odata_i : std_logic_vector (N-1 downto 0);
 
 
 BEGIN
@@ -120,8 +120,6 @@ BEGIN
 	IF ( current_state = ONRESET) THEN
  		odata <= (OTHERS => 'U') ;
 		msg_decode_done <= 'U';
-		Parity1 <= 'U';
-
 	END IF;
 
 	IF (current_state = IDLE) THEN
@@ -162,15 +160,24 @@ BEGIN
 
 	IF (current_state = BIT_CHECK) THEN	
 
-
-
+	odata_i(N-1) <= std_logic_vector(to_unsigned( ( 1+ (to_integer(unsigned(B2_1))) +  (to_integer(unsigned(B3_1))) + (to_integer(unsigned(idata(N-1))))) mod 2,1));
+--	odata_i(N-1) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B2_1))+ to_integer(unsigned(B3_1)) + to_integer(unsigned(B5_1)) + to_integer(unsigned(idata(N-1))) mod 2 ,1)); 
+--	odata_i(N-2) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_2))+ to_integer(unsigned(B5_2)) + to_integer(unsigned(idata(N-2))) mod 2 ,odata(N-2)'length)); 
+--	odata_i(N-3) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_3))+ to_integer(unsigned(B2_3))+ to_integer(unsigned(B3_3)) + to_integer(unsigned(B4_3)) + to_integer(unsigned(idata(N-3))) mod 2 ,1)); 
+--	odata_i(N-4) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_4))+ to_integer(unsigned(B4_4)) + to_integer(unsigned(idata(N-4))) mod 2 ,1)); 
+--	odata_i(N-5) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B3_5))+ to_integer(unsigned(B4_5)) + to_integer(unsigned(B5_5)) + to_integer(unsigned(idata(N-5))) mod 2 , 1));
+--	odata_i(N-6) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_6))+ to_integer(unsigned(idata(N-6))) mod 2 ,1)); 
+--	odata_i(N-7) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B2_7))+ to_integer(unsigned(idata(N-7))) mod 2 ,1)); 
+--	odata_i(N-8) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B3_8))+ to_integer(unsigned(idata(N-8))) mod 2 ,1));
+--	odata_i(N-9) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B4_9))+ to_integer(unsigned(idata(N-9))) mod 2 ,1));
+--	odata_i(N-10) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B5_10))+ to_integer(unsigned(idata(N-10))) mod 2 ,1));
 	END IF;
 
 
 
 	IF ( current_state = DONE) THEN
 		msg_decode_done <= '1';
-		odata <= idata(N-1 downto N-5) ;
+		odata <= odata_i(N-1 downto N-5) ;
 	ELSE 
 		msg_decode_done <= '0';
 		odata <= (OTHERS => 'U');
