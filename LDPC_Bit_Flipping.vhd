@@ -33,25 +33,18 @@ END Bit_Flipping;
 ARCHITECTURE behav OF Bit_Flipping IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET, IDLE, PARITY_CHECK, BIT_ADD1, BIT_ADD2, BIT_ADD3, BIT_ADD4, BIT_ADD5, HOLD_1, HOLD_2, BIT_FLIP, BIT_DECODE);
+TYPE state_type IS (ONRESET, IDLE, PARITY_CHECK, BIT_CHECK, HOLD_1, HOLD_2, DONE);
 
 -- Define States
 SIGNAL current_state, next_state : state_type;
 
 -- Define Signals
-SIGNAL Bit1 : integer; --Represent Each Bit Protection Equation
-SIGNAL Bit2 : integer; -- Eqn 2
-SIGNAL Bit3 : integer; -- Eqn 3
-SIGNAL Bit4 : integer; -- Eqn 4
-SIGNAL Bit5 : integer; -- Eqn 5
-SIGNAL Bit6 : integer; -- Eqn 6
-SIGNAL Bit7 : integer; -- Eqn 7
-SIGNAL Bit8 : integer; -- Eqn 8
-SIGNAL Bit9 : integer; -- Eqn 9
-SIGNAL Bit10 : integer; -- Eqn 10
+SIGNAL B1_2,B1_3,B1_4,B1_6 : std_logic; --Represent Each Bit Protection Equation
+SIGNAL B2_1,B2_3,B2_7,  : std_logic;
+SIGNAL B3_1,B3_3,B3_5,B3_8 : std_logic;
+SIGNAL B4_3,B4_4,B4_5,B4_9 : std_logic;
+SIGNAL B5_1,B5_2,B5_5,B5_10 : std_logic;
 
-
-SIGNAL Parity1,Parity2,Parity3,Parity4,Parity5 : std_logic;
 SIGNAL idata : std_logic_vector (N-1 downto 0);
 
 
@@ -91,76 +84,21 @@ BEGIN
 
 
 	WHEN HOLD_1 =>
-	IF (Parity1 = '0') and (Parity2 = '0') and (Parity3 = '0') and (Parity4 = '0') and (Parity5 = '0') THEN 	
-	next_state <= BIT_DECODE;
-        ELSIF (Parity1 = '1') THEN
-	next_state <= BIT_ADD1;
-        ELSIF (Parity2 = '1') THEN
-	next_state <= BIT_ADD2;
-        ELSIF (Parity3 = '1') THEN
-	next_state <= BIT_ADD3;
-        ELSIF (Parity4 = '1') THEN
-	next_state <= BIT_ADD4;
-        ELSIF (Parity5 = '1') THEN
-	next_state <= BIT_ADD5;
-	END IF;
+	next_state <= BIT_CHECK;
 
 
 
-	WHEN BIT_ADD1 =>
-        IF (Parity2 = '1') THEN
-	next_state <= BIT_ADD2;
-        ELSIF (Parity3 = '1') THEN
-	next_state <= BIT_ADD3;
-        ELSIF (Parity4 = '1') THEN
-	next_state <= BIT_ADD4;
-        ELSIF (Parity5 = '1') THEN
-	next_state <= BIT_ADD5;
-	ELSE
-	next_state<= HOLD_2;
-	END IF;
+	WHEN BIT_CHECK =>
+	next_state <= HOLD_2;
+
 
 	
-	WHEN BIT_ADD2 =>
-        IF (Parity3 = '1') THEN
-	next_state <= BIT_ADD3;
-        ELSIF (Parity4 = '1') THEN
-	next_state <= BIT_ADD4;
-        ELSIF (Parity5 = '1') THEN
-	next_state <= BIT_ADD5;
-	ELSE
-	next_state<= HOLD_2;
-	END IF;
-
-	WHEN BIT_ADD3 =>
-	IF (Parity4 = '1') THEN
-	next_state <= BIT_ADD4;
-        ELSIF (Parity5 = '1') THEN
-	next_state <= BIT_ADD5;
-	ELSE
-	next_state<= HOLD_2;
-	END IF;
-
-	WHEN BIT_ADD4 =>
-	IF (Parity5 = '1') THEN
-	next_state <= BIT_ADD5;
-	ELSE
-	next_state<= HOLD_2;
-	END IF;
-
-	WHEN BIT_ADD5 =>
-	next_state<= HOLD_2;
-
 	WHEN HOLD_2 =>
-	next_state <= BIT_FLIP;
-----------------------------------------------------------
+	next_state <= DONE;
 
-	WHEN BIT_FLIP =>
-	next_state <= PARITY_CHECK;
 
----------------------------------------------------
-	WHEN BIT_DECODE =>
-	next_state <= ONRESET;
+	WHEN DONE =>
+	next_state <= IDLE;
 
 
 	WHEN OTHERS =>
@@ -183,10 +121,7 @@ BEGIN
  		odata <= (OTHERS => 'U') ;
 		msg_decode_done <= 'U';
 		Parity1 <= 'U';
-		Parity2 <= 'U';
-		Parity3 <= 'U';
-		Parity4 <= 'U';
-		Parity5 <= 'U';
+
 	END IF;
 
 	IF (current_state = IDLE) THEN
@@ -197,173 +132,43 @@ BEGIN
 -------------------------------------------------------------
 	IF (current_state = PARITY_CHECK) THEN
 	
-	Parity1 <= idata(N-2) xor idata(N-3) xor idata(N-4) xor idata(N-6);
-	Parity2 <= idata(N-1) xor idata(N-3) xor idata(N-7);
-	Parity3 <= idata(N-1) xor idata(N-3) xor idata(N-5) xor idata(N-8);
-	Parity4 <= idata(N-3) xor idata(N-4) xor idata(N-5) xor idata(N-9);
-	Parity5 <= idata(N-1) xor idata(N-2) xor idata(N-5) xor idata(N-10);
-
-	Bit1 <= 0;
-	Bit2 <= 0;
-	Bit3 <= 0;
-	Bit4 <= 0;
-	Bit5 <= 0;
-	Bit6 <= 0;
-	Bit7 <= 0;
-	Bit8 <= 0;
-	Bit9 <= 0;
-	Bit10 <= 0;
+	B1_2 <= idata(N-3) xor idata(N-4) xor idata(N-6);
+	B1_3 <= idata(N-2) xor idata(N-4) xor idata(N-6);
+	B1_4 <= idata(N-2) xor idata(N-3) xor idata(N-6);
+	B1_6 <= idata(N-2) xor idata(N-3) xor idata(N-4);
+------------------------------------------------------------
+	B2_1 <= idata(N-3) xor idata(N-7);
+	B2_3 <= idata(N-1) xor idata(N-7);
+	B2_7 <= idata(N-1) xor idata(N-3);
+------------------------------------------------------------
+	B3_1 <= idata(N-3) xor idata(N-5) xor idata(N-8);
+	B3_3 <= idata(N-1) xor idata(N-5) xor idata(N-8);
+	B3_5 <= idata(N-1) xor idata(N-3) xor idata(N-8);
+	B3_8 <= idata(N-1) xor idata(N-3) xor idata(N-5);
+------------------------------------------------------------
+	B4_3 <= idata(N-4) xor idata(N-5) xor idata(N-9);
+	B4_4 <= idata(N-3) xor idata(N-5) xor idata(N-9);
+	B4_5 <= idata(N-3) xor idata(N-4) xor idata(N-9);
+	B4_9 <= idata(N-3) xor idata(N-4) xor idata(N-5);
+-------------------------------------------------------------
+	B5_1 <= idata(N-2) xor idata(N-5) xor idata(N-10);
+	B5_2 <= idata(N-1) xor idata(N-5) xor idata(N-10);
+	B5_5 <= idata(N-1) xor idata(N-2) xor idata(N-10);
+	B5_10 <= idata(N-1) xor idata(N-2) xor idata(N-5);
 
 	END IF;
 -----------------------------------------------------------------------------
 
 
-	IF (current_state = BIT_ADD1) THEN	
-
-	Bit2 <= Bit2 + 1;
-	Bit3 <= Bit3 + 1;
-	Bit4 <= Bit4 + 1;
-	Bit6 <= Bit6 + 1;
-
-	END IF;
-
-	IF (current_state = BIT_ADD2) THEN	
-
-	Bit1 <= Bit1 + 1;
-	Bit3 <= Bit3 + 1;
-	Bit7 <= Bit7 + 1;
-
-	END IF;
-
-	IF (current_state = BIT_ADD3) THEN	
-
-	Bit1 <= Bit1 + 1;
-	Bit3 <= Bit3 + 1;
-	Bit5 <= Bit5 + 1;
-	Bit8 <= Bit8 + 1;
-
-	END IF;
+	IF (current_state = BIT_CHECK) THEN	
 
 
-	IF (current_state = BIT_ADD4) THEN	
-
-	Bit3 <= Bit3 + 1;
-	Bit4 <= Bit4 + 1;
-	Bit5 <= Bit5 + 1;
-	Bit9 <= Bit9 + 1;
-
-	END IF;
-
-
-	IF (current_state = BIT_ADD5) THEN	
-
-	Bit1 <= Bit1 + 1;
-	Bit2 <= Bit2 + 1;
-	Bit5 <= Bit5 + 1;
-	Bit10 <= Bit10 + 1;
 
 	END IF;
 
 
 
-
-	IF ( current_state = BIT_FLIP) THEN
-
-	
-	--9
-	IF ((Bit1>Bit2)and(Bit1>Bit3)and(Bit1>Bit4)and(Bit1>Bit5)and(Bit1>Bit6)and(Bit1>Bit7)and(Bit1>Bit8)and(Bit1>Bit9)and(Bit1>Bit10)) THEN 
-	IF(idata(N-1) = '0') THEN
-	idata(N-1) <= '1';
-	ELSE
-	idata(N-1) <= '0';
-	END IF;
-	END IF;
-	
-	--8
-	IF ((Bit2>Bit1)and(Bit2>Bit3)and(Bit2>Bit4)and(Bit2>Bit5)and(Bit2>Bit6)and(Bit2>Bit7)and(Bit2>Bit8)and(Bit2>Bit9)and(Bit2>Bit10)) THEN 
-	IF(idata(N-2) = '0') THEN
-	idata(N-2) <= '1';
-	ELSE
-	idata(N-2) <= '0';
-	END IF;
-	END IF;
-
-	--7
-	IF ((Bit3>Bit1)and(Bit3>Bit2)and(Bit3>Bit4)and(Bit3>Bit5)and(Bit3>Bit6)and(Bit3>Bit7)and(Bit3>Bit8)and(Bit3>Bit9)and(Bit3>Bit10)) THEN 
-	IF(idata(N-3) = '0') THEN
-	idata(N-3) <= '1';
-	ELSE
-	idata(N-3) <= '0';
-	END IF;
-	END IF;
-
-	--6
-	IF ((Bit4>Bit1)and(Bit4>Bit2)and(Bit4>Bit3)and(Bit4>Bit5)and(Bit4>Bit6)and(Bit4>Bit7)and(Bit4>Bit8)and(Bit4>Bit9)and(Bit4>Bit10)) THEN 
-	IF(idata(N-4) = '0') THEN
-	idata(N-4) <= '1';
-	ELSE
-	idata(N-4) <= '0';
-	END IF;
-	END IF;
-
-	--5
-	IF ((Bit5>Bit1)and(Bit5>Bit2)and(Bit5>Bit3)and(Bit5>Bit4)and(Bit5>Bit6)and(Bit5>Bit7)and(Bit5>Bit8)and(Bit5>Bit9)and(Bit5>Bit10)) THEN 
-	IF(idata(N-5) = '0') THEN
-	idata(N-5) <= '1';
-	ELSE
-	idata(N-5) <= '0';
-	END IF;
-	END IF;
-
-	--4
-	IF ((Bit6>Bit1)and(Bit6>Bit2)and(Bit6>Bit3)and(Bit6>Bit4)and(Bit6>Bit5)and(Bit6>Bit7)and(Bit6>Bit8)and(Bit6>Bit9)and(Bit6>Bit10)) THEN 
-	IF(idata(N-6) = '0') THEN
-	idata(N-6) <= '1';
-	ELSE
-	idata(N-6) <= '0';
-	END IF;
-	END IF;
-
-	--3
-	IF ((Bit7>Bit1)and(Bit7>Bit2)and(Bit7>Bit3)and(Bit7>Bit4)and(Bit7>Bit5)and(Bit7>Bit6)and(Bit7>Bit8)and(Bit7>Bit9)and(Bit7>Bit10)) THEN 
-	IF(idata(N-7) = '0') THEN
-	idata(N-7) <= '1';
-	ELSE
-	idata(N-7) <= '0';
-	END IF;
-	END IF;
-
-	--2
-	IF ((Bit8>Bit1)and(Bit8>Bit2)and(Bit8>Bit3)and(Bit8>Bit4)and(Bit8>Bit5)and(Bit8>Bit6)and(Bit8>Bit7)and(Bit8>Bit9)and(Bit8>Bit10)) THEN 
-	IF(idata(N-8) = '0') THEN
-	idata(N-8) <= '1';
-	ELSE
-	idata(N-8) <= '0';
-	END IF;
-	END IF;
-
-	--1
-	IF ((Bit9>Bit1)and(Bit9>Bit2)and(Bit9>Bit3)and(Bit9>Bit4)and(Bit9>Bit5)and(Bit9>Bit6)and(Bit9>Bit7)and(Bit9>Bit8)and(Bit9>Bit10)) THEN 
-	IF(idata(N-9) = '0') THEN
-	idata(N-9) <= '1';
-	ELSE
-	idata(N-9) <= '0';
-	END IF;
-
-	--0
-	ELSIF ((Bit10>Bit1)and(Bit10>Bit2)and(Bit10>Bit3)and(Bit10>Bit4)and(Bit10>Bit5)and(Bit10>Bit6)and(Bit10>Bit7)and(Bit10>Bit8)and(Bit10>Bit9)) THEN 
-	IF(idata(N-10) = '0') THEN
-	idata(N-10) <= '1';
-	ELSE
-	idata(N-10) <= '0';
-	END IF;
-	END IF;
-
-
-	END IF;
-
-
-	IF ( current_state = BIT_DECODE) THEN
+	IF ( current_state = DONE) THEN
 		msg_decode_done <= '1';
 		odata <= idata(N-1 downto N-5) ;
 	ELSE 
