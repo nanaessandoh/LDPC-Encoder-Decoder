@@ -160,7 +160,8 @@ BEGIN
 
 	IF (current_state = BIT_CHECK) THEN	
 
-	odata_i(N-1) <= std_logic_vector(to_unsigned( ( 1+ (to_integer(unsigned(B2_1))) +  (to_integer(unsigned(B3_1))) + (to_integer(unsigned(idata(N-1))))) mod 2,1));
+--	odata_i(N-1) <= std_logic_vector(to_unsigned( ( 1+ (to_integer(unsigned(B2_1))) +  (to_integer(unsigned(B3_1))) + (to_integer(unsigned(idata(N-1))))) mod 2,1));
+	odata_i(N-1) <= std_logic_vector(to_unsigned( ((1 + to_integer(unsigned(B2_1)) + to_integer(unsigned(B3_1)) + to_integer(unsigned(idata(N-1))))mod 2),1))
 --	odata_i(N-1) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B2_1))+ to_integer(unsigned(B3_1)) + to_integer(unsigned(B5_1)) + to_integer(unsigned(idata(N-1))) mod 2 ,1)); 
 --	odata_i(N-2) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_2))+ to_integer(unsigned(B5_2)) + to_integer(unsigned(idata(N-2))) mod 2 ,odata(N-2)'length)); 
 --	odata_i(N-3) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_3))+ to_integer(unsigned(B2_3))+ to_integer(unsigned(B3_3)) + to_integer(unsigned(B4_3)) + to_integer(unsigned(idata(N-3))) mod 2 ,1)); 
