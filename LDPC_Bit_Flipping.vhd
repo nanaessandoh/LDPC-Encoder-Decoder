@@ -45,6 +45,8 @@ SIGNAL B3_1,B3_3,B3_5,B3_8 : std_logic;
 SIGNAL B4_3,B4_4,B4_5,B4_9 : std_logic;
 SIGNAL B5_1,B5_2,B5_5,B5_10 : std_logic;
 
+SIGNAL C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 : std_logic;
+
 SIGNAL idata, odata_i : std_logic_vector (N-1 downto 0);
 
 
@@ -158,20 +160,52 @@ BEGIN
 -----------------------------------------------------------------------------
 
 
-	IF (current_state = BIT_CHECK) THEN	
+	IF (current_state = HOLD_1) THEN
+	
+	C1 <= B2_1 xor B3_1 xor B5_1;
+	C2 <= B1_2 xor B5_2;
+	C3 <= B1_3 xor B2_3 xor B3_3 xor B4_3;
+	C4 <= B1_4 xor B4_4;
+	C5 <= B3_5 xor B4_5 xor B5_5;
+	C6 <= B1_6;
+	C7 <= B2_7;
+	C8 <= B3_8;
+	C9 <= B4_9;
+	C10 <= B5_10; 
 
---	odata_i(N-1) <= std_logic_vector(to_unsigned( ( 1+ (to_integer(unsigned(B2_1))) +  (to_integer(unsigned(B3_1))) + (to_integer(unsigned(idata(N-1))))) mod 2,1));
-	odata_i(N-1) <= std_logic_vector(to_unsigned( ((1 + to_integer(unsigned(B2_1)) + to_integer(unsigned(B3_1)) + to_integer(unsigned(idata(N-1))))mod 2),1))
---	odata_i(N-1) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B2_1))+ to_integer(unsigned(B3_1)) + to_integer(unsigned(B5_1)) + to_integer(unsigned(idata(N-1))) mod 2 ,1)); 
---	odata_i(N-2) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_2))+ to_integer(unsigned(B5_2)) + to_integer(unsigned(idata(N-2))) mod 2 ,odata(N-2)'length)); 
---	odata_i(N-3) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_3))+ to_integer(unsigned(B2_3))+ to_integer(unsigned(B3_3)) + to_integer(unsigned(B4_3)) + to_integer(unsigned(idata(N-3))) mod 2 ,1)); 
---	odata_i(N-4) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_4))+ to_integer(unsigned(B4_4)) + to_integer(unsigned(idata(N-4))) mod 2 ,1)); 
---	odata_i(N-5) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B3_5))+ to_integer(unsigned(B4_5)) + to_integer(unsigned(B5_5)) + to_integer(unsigned(idata(N-5))) mod 2 , 1));
---	odata_i(N-6) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B1_6))+ to_integer(unsigned(idata(N-6))) mod 2 ,1)); 
---	odata_i(N-7) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B2_7))+ to_integer(unsigned(idata(N-7))) mod 2 ,1)); 
---	odata_i(N-8) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B3_8))+ to_integer(unsigned(idata(N-8))) mod 2 ,1));
---	odata_i(N-9) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B4_9))+ to_integer(unsigned(idata(N-9))) mod 2 ,1));
---	odata_i(N-10) <= std_logic_vector( to_unsigned( (1 + to_integer(unsigned(B5_10))+ to_integer(unsigned(idata(N-10))) mod 2 ,1));
+
+
+
+
+	END IF;
+-----------------------------------------------------------------------------
+
+	IF (current_state = BIT_CHECK) THEN
+	
+-------------------------------------------------------------------------- Bit 1
+	IF (B2_1 = '0') and (B3_1 = '0') and (B5_1 = '0') THEN
+	idata(N-1) <= '0';
+	ELSIF (B2_1 = '1') and (B3_1 = '1') and (B5_1 = '1') THEN
+	idata(N-1) <='1';
+	ELSIF (C1 = '0') THEN
+	idata(N-1) <= '1';
+	ELSE
+	idata(N-1) <=' 0'
+ -------------------------------------------------------------------------- Bit 2
+
+	IF (B1_2 = '0') and (B5_2 = '0') THEN
+	idata(N-2) <= '0';
+	ELSIF (B1_2 = '0') and (B5_2 = '0') THEN
+	idata(N-2) <='1';
+	ELSIF (C2 = '0') THEN
+	idata(N-2) <= '1';
+	ELSE
+	idata(N-2) <=' 0'
+
+
+	
+
+
 	END IF;
 
 
