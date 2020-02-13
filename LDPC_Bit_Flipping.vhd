@@ -45,9 +45,9 @@ SIGNAL B3_1,B3_3,B3_5,B3_8 : std_logic;
 SIGNAL B4_3,B4_4,B4_5,B4_9 : std_logic;
 SIGNAL B5_1,B5_2,B5_5,B5_10 : std_logic;
 
-SIGNAL C1,C2,C3,C4,C5,C6,C7,C8,C9,C10 : std_logic;
+SIGNAL C1_0,C2,C3,C4,C5,C6,C7,C8,C9,C10 : std_logic;
 
-SIGNAL idata, odata_i : std_logic_vector (N-1 downto 0);
+SIGNAL idata: std_logic_vector (N-1 downto 0);
 
 
 BEGIN
@@ -167,11 +167,7 @@ BEGIN
 	C3 <= B1_3 xor B2_3 xor B3_3 xor B4_3;
 	C4 <= B1_4 xor B4_4;
 	C5 <= B3_5 xor B4_5 xor B5_5;
-	C6 <= B1_6;
-	C7 <= B2_7;
-	C8 <= B3_8;
-	C9 <= B4_9;
-	C10 <= B5_10; 
+ 
 
 
 
@@ -206,6 +202,14 @@ BEGIN
 
 	IF (B1_3 = '0') and (B2_3 = '0') and (B3_3 = '0') and (B4_3 = '0') THEN
 	idata(N-3) <= '0';
+	ELSIF (B1_3 = '1') and (B2_3 = '1') and (B3_3 = '1') THEN
+	idata(N-3) <='1';
+	ELSIF (B1_3 = '1') and (B2_3 = '1') and (B4_3 = '1') THEN
+	idata(N-3) <='1';
+	ELSIF (B1_3 = '1') and (B3_3 = '1') and (B4_3 = '1') THEN
+	idata(N-3) <='1';
+	ELSIF (B2_3 = '1') and (B3_3 = '1') and (B4_3 = '1') THEN
+	idata(N-3) <='1';
 	ELSIF (B1_3 = '1') and (B2_3 = '1') and (B3_3 = '1') and (B4_3 = '1') THEN
 	idata(N-3) <='1';
 	ELSIF (C3 = '0') THEN
@@ -235,9 +239,6 @@ BEGIN
 	ELSE
 	idata(N-5) <=' 0';
 
--------------------------------------------------------------------------- Bit 6
-
-
 
 
 	END IF;
@@ -246,7 +247,7 @@ BEGIN
 
 	IF ( current_state = DONE) THEN
 		msg_decode_done <= '1';
-		odata <= odata_i(N-1 downto N-5) ;
+		odata <= idata(N-1 downto N-5) ;
 	ELSE 
 		msg_decode_done <= '0';
 		odata <= (OTHERS => 'U');
