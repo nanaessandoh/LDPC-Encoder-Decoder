@@ -1,4 +1,16 @@
-{C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd}
+{C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Message_Passing.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity Message_Passing
+-- Compiling architecture behav of Message_Passing
+
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Erasure.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -58,24 +70,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity test_encoder
 -- Compiling architecture behav of test_encoder
 
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd} {0 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Compiling entity Bit_Flipping
--- Compiling architecture behav of Bit_Flipping
-** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd(163): Target type ieee.std_logic_1164.STD_ULOGIC in signal assignment is different from expression type ieee.std_logic_1164.STD_LOGIC_VECTOR.
-** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd(163): ** Error: (vcom-1583) Illegal type converson from 'ieee.std_logic_1164.STD_LOGIC' to 'ieee.NUMERIC_STD.UNSIGNED' (non-numeric to array).
-** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd(163): ** Error: (vcom-1583) Illegal type converson from 'ieee.std_logic_1164.STD_LOGIC' to 'ieee.NUMERIC_STD.UNSIGNED' (non-numeric to array).
-** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd(163): ** Error: (vcom-1583) Illegal type converson from 'ieee.std_logic_1164.STD_LOGIC' to 'ieee.NUMERIC_STD.UNSIGNED' (non-numeric to array).
-** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd(190): VHDL Compiler exiting
-
-} {12.0 17.0} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd}
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Encoder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
