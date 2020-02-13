@@ -126,6 +126,8 @@ BEGIN
 	PROCESS(clk, rstb)	
 	BEGIN
 
+	IF ( clk'EVENT and clk = '0') THEN
+
 	IF ( current_state = ONRESET) THEN
  		error_data <= "UUUUUUUUUU" ;
 		edone <= 'U';
@@ -207,6 +209,8 @@ BEGIN
 	ELSE 
 		edone <= '0';
 		error_data <= "UUUUUUUUUU";
+	END IF;
+
 	END IF;
 
 	END PROCESS combinational;
