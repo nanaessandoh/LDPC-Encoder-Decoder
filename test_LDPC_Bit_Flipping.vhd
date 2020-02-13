@@ -106,11 +106,11 @@ BEGIN
 	WAIT FOR 10 ns;
 
 	isop_i	<= '1';
-	input_data_i	<= ("0010101001"); -- Original Codeword 0010111001	
+	input_data_i	<= ("1010111001"); -- Original Codeword 0010111001	
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	
-	WAIT FOR 250 ns;
+	WAIT FOR 150 ns;
 
 
 	isop_i	<= '1';
@@ -118,15 +118,15 @@ BEGIN
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	input_data_i	<= ("0100100111"); -- Original Codeword 0000100111	
-	WAIT FOR 250 ns;
+	WAIT FOR 150 ns;
 
 
 	isop_i	<= '1';
-	input_data_i	<= ("0101010011"); --  Original Codeword 0101000011
+	input_data_i	<= ("0111000011"); --  Original Codeword 0101000011
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 
-	WAIT FOR 250 ns;
+	WAIT FOR 150 ns;
 
 	END PROCESS Do_Test;
 

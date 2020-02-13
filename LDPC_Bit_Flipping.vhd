@@ -33,7 +33,7 @@ END Bit_Flipping;
 ARCHITECTURE behav OF Bit_Flipping IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET, IDLE, PARITY_CHECK, BIT_CHECK, HOLD_1, HOLD_2, DONE);
+TYPE state_type IS (ONRESET, IDLE, PARITY_CHECK, BIT_FLIP, BIT_CHK_1,BIT_CHK_2, BIT_CHK_3, BIT_CHK_4, HOLD_2, DONE);
 
 -- Define States
 SIGNAL current_state, next_state : state_type;
@@ -91,20 +91,22 @@ BEGIN
 	END IF;
 
 	WHEN PARITY_CHECK =>
-	next_state <= HOLD_1;
+	next_state <= BIT_CHK_1;
+
+	WHEN BIT_CHK_1 =>
+	next_state <= BIT_CHK_2;
+
+	WHEN BIT_CHK_2 =>
+	next_state <= BIT_CHK_3;
 
 
-	WHEN HOLD_1 =>
-	next_state <= BIT_CHECK;
+	WHEN BIT_CHK_3 =>
+	next_state <= BIT_CHK_4;
 
+	WHEN BIT_CHK_4 =>
+	next_state <= BIT_FLIP;
 
-
-	WHEN BIT_CHECK =>
-	next_state <= HOLD_2;
-
-
-	
-	WHEN HOLD_2 =>
+	WHEN BIT_FLIP =>
 	next_state <= DONE;
 
 
@@ -155,6 +157,25 @@ BEGIN
 		Bit9_1 <= 0; 
 		Bit10_0 <= 0; 
 		Bit10_1 <= 0;
+		B1_2 <='U';
+		B1_3 <='U';
+		B1_4 <='U';
+		B1_6 <='U';  
+		B2_1 <='U';
+		B2_3 <='U';
+		B2_7 <='U';  
+		B3_1 <='U';
+		B3_3 <='U';
+		B3_5 <='U';
+		B3_8 <='U';
+		B4_3 <='U';
+		B4_4 <='U';
+		B4_5 <='U';
+		B4_9 <='U';
+		B5_1 <='U';
+		B5_2 <='U';
+		B5_5 <='U';
+		B5_10 <='U';
 				
 	END IF;
 
@@ -248,7 +269,7 @@ BEGIN
 	END IF;
 -----------------------------------------------------------------------------
 
-	IF (current_state = HOLD_1) THEN
+	IF (current_state = BIT_CHK_1) THEN
 	
 	IF (B2_1 = '0') THEN
 	Bit1_0 <= Bit1_0 + 1;
@@ -314,7 +335,7 @@ BEGIN
 	END IF;
 -----------------------------------------------------------------------------
 
-	IF (current_state = HOLD_2) THEN
+	IF (current_state = BIT_CHK_2) THEN
 
 	IF (B3_1 = '0') THEN
 	Bit1_0 <= Bit1_0 + 1;
@@ -349,7 +370,7 @@ BEGIN
 	END IF;
 -----------------------------------------------------------------------------
 
-	IF (current_state = HOLD_3) THEN
+	IF (current_state = BIT_CHK_3) THEN
 	
 	IF (B5_1 = '0') THEN
 	Bit1_0 <= Bit1_0 + 1;
@@ -377,7 +398,7 @@ BEGIN
 
 ------------------------------------------------------------------------------
 
-	IF (current_state = HOLD_4) THEN
+	IF (current_state = BIT_CHK_4) THEN
 	
 
 	IF ( B4_3 = '0') THEN
@@ -390,8 +411,39 @@ BEGIN
 	END IF;
 
 ------------------------------------------------------------------------------
-	IF (current_state = BIT_CHECK) THEN
+	IF (current_state = BIT_FLIP) THEN
+
+	IF ( Bit1_0 > Bit1_1) THEN
+	idata(N-1) <= '0';
+	ELSIF ( Bit1_1 > Bit1_0) THEN  
+	idata(N-1) <= '1';
+	END IF;
 	
+
+	IF ( Bit2_0 > Bit2_1) THEN
+	idata(N-2) <= '0';
+	ELSIF ( Bit2_1 > Bit2_0) THEN  
+	idata(N-2) <= '1';
+	END IF;
+
+	IF ( Bit3_0 > Bit3_1) THEN
+	idata(N-3) <= '0';
+	ELSIF ( Bit3_1 > Bit3_0) THEN  
+	idata(N-3) <= '1';
+	END IF;
+
+
+	IF ( Bit4_0 > Bit4_1) THEN
+	idata(N-4) <= '0';
+	ELSIF ( Bit4_1 > Bit4_0) THEN  
+	idata(N-4) <= '1';
+	END IF;
+
+	IF ( Bit5_0 > Bit5_1) THEN
+	idata(N-5) <= '0';
+	ELSIF ( Bit5_1 > Bit5_0) THEN  
+	idata(N-5) <= '1';
+	END IF;
 
 	END IF;
 

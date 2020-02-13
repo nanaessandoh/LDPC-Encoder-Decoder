@@ -106,7 +106,7 @@ BEGIN
 	WAIT FOR 10 ns;
 
 	isop_i	<= '1';
-	input_data_i	<= ("010101001"); -- Original Codeword 0010111001	
+	input_data_i	<= ("1010111001"); -- Original Codeword 0010111001	
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	
@@ -122,7 +122,7 @@ BEGIN
 
 
 	isop_i	<= '1';
-	input_data_i	<= ("0101010011"); --  Original Codeword 0101000011
+	input_data_i	<= ("0111000011"); --  Original Codeword 0101000011
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 
