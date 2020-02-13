@@ -59,6 +59,18 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling architecture behav of Top_Level
 ** Warning: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/Top_Level_LDPC.vhd(46): (vcom-1090) Possible infinite loop: Process contains no WAIT statement.
 
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/LDPC_Bit_Flipping.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity Bit_Flipping
+-- Compiling architecture behav of Bit_Flipping
+
 } {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/ENGI-980/test_LDPC_Encoder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD

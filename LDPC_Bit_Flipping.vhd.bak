@@ -203,13 +203,13 @@ BEGIN
 	Bit3_1 <= Bit3_1 + 1;
 	END IF;	
 
-	IF idata(N-4) = '0' THEN
+	IF (idata(N-4) = '0') THEN
 	Bit4_0 <= Bit4_0 + 1;
 	ELSIF (idata(N-4) = '1') THEN  
 	Bit4_1 <= Bit4_1 + 1;
 	END IF;
 
-	IF idata(N-5) = '0' THEN
+	IF (idata(N-5) = '0') THEN
 	Bit5_0 <= Bit5_0 + 1;
 	ELSIF (idata(N-5) = '1') THEN  
 	Bit5_1 <= Bit5_1 + 1;
@@ -248,19 +248,148 @@ BEGIN
 	END IF;
 -----------------------------------------------------------------------------
 
-
---	IF (current_state = HOLD_1) THEN
+	IF (current_state = HOLD_1) THEN
 	
+	IF (B2_1 = '0') THEN
+	Bit1_0 <= Bit1_0 + 1;
+	ELSIF (B2_1 = '1') THEN 
+	Bit1_1 <= Bit1_1 + 1;
+	END IF;
+
+	IF (B1_2 = '0') THEN
+	Bit2_0 <= Bit2_0 + 1;
+	ELSIF ( B1_2 = '1') THEN  
+	Bit2_1 <= Bit2_1 + 1;
+	END IF;
+
+	IF ( B1_3 = '0') THEN
+	Bit3_0 <= Bit3_0 + 1;
+	ELSIF ( B1_3 = '1') THEN  
+	Bit3_1 <= Bit3_1 + 1;
+	END IF;	
+
+	IF ( B1_4 = '0') THEN
+	Bit4_0 <= Bit4_0 + 1;
+	ELSIF (B1_4 = '1') THEN  
+	Bit4_1 <= Bit4_1 + 1;
+	END IF;
+
+	IF (B3_5 = '0') THEN
+	Bit5_0 <= Bit5_0 + 1;
+	ELSIF (B3_5 = '1') THEN  
+	Bit5_1 <= Bit5_1 + 1;
+	END IF;
+
+	IF (B1_6 = '0') THEN
+	Bit6_0 <= Bit6_0 + 1;
+	ELSIF (B1_6 = '1') THEN 
+	Bit6_1 <= Bit6_1 + 1;
+	END IF;
+
+	IF (B2_7 = '0') THEN
+	Bit7_0 <= Bit7_0 + 1;
+	ELSIF (B2_7 = '1') THEN  
+	Bit7_1 <= Bit7_1 + 1;
+	END IF;
+
+	IF (B3_8 = '0') THEN
+	Bit8_0 <= Bit8_0 + 1;
+	ELSIF (B3_8 = '1') THEN  
+	Bit8_1 <= Bit8_1 + 1;
+	END IF;
+
+	IF (B4_9 = '0') THEN
+	Bit9_0 <= Bit9_0 + 1;
+	ELSIF (B4_9 = '1') THEN  
+	Bit9_1 <= Bit9_1 + 1;
+	END IF;
+
+	IF (B5_10 = '0') THEN
+	Bit10_0 <= Bit10_0 + 1;
+	ELSIF (B5_10 = '1') THEN  
+	Bit10_1 <= Bit10_1 + 1;
+	END IF;
 
 
-
---	END IF;
+	END IF;
 -----------------------------------------------------------------------------
 
---	IF (current_state = BIT_CHECK) THEN
+	IF (current_state = HOLD_2) THEN
+
+	IF (B3_1 = '0') THEN
+	Bit1_0 <= Bit1_0 + 1;
+	ELSIF (B3_1 = '1') THEN 
+	Bit1_1 <= Bit1_1 + 1;
+	END IF;
+
+	IF (B5_2 = '0') THEN
+	Bit2_0 <= Bit2_0 + 1;
+	ELSIF ( B5_2 = '1') THEN  
+	Bit2_1 <= Bit2_1 + 1;
+	END IF;
+
+	IF ( B2_3 = '0') THEN
+	Bit3_0 <= Bit3_0 + 1;
+	ELSIF ( B2_3 = '1') THEN  
+	Bit3_1 <= Bit3_1 + 1;
+	END IF;	
+
+	IF ( B4_4 = '0') THEN
+	Bit4_0 <= Bit4_0 + 1;
+	ELSIF (B4_4 = '1') THEN  
+	Bit4_1 <= Bit4_1 + 1;
+	END IF;
+
+	IF (B4_5 = '0') THEN
+	Bit5_0 <= Bit5_0 + 1;
+	ELSIF (B4_5 = '1') THEN  
+	Bit5_1 <= Bit5_1 + 1;
+	END IF;
+
+	END IF;
+-----------------------------------------------------------------------------
+
+	IF (current_state = HOLD_3) THEN
+	
+	IF (B5_1 = '0') THEN
+	Bit1_0 <= Bit1_0 + 1;
+	ELSIF (B5_1 = '1') THEN 
+	Bit1_1 <= Bit1_1 + 1;
+	END IF;
+
+
+	IF ( B3_3 = '0') THEN
+	Bit3_0 <= Bit3_0 + 1;
+	ELSIF ( B3_3 = '1') THEN  
+	Bit3_1 <= Bit3_1 + 1;
+	END IF;	
+
+
+	IF (B5_5 = '0') THEN
+	Bit5_0 <= Bit5_0 + 1;
+	ELSIF (B5_5 = '1') THEN  
+	Bit5_1 <= Bit5_1 + 1;
+	END IF;
+
+
+
+	END IF;
+
+------------------------------------------------------------------------------
+
+	IF (current_state = HOLD_4) THEN
 	
 
---	END IF;
+
+
+
+	END IF;
+
+------------------------------------------------------------------------------
+	IF (current_state = BIT_CHECK) THEN
+	
+
+	END IF;
 
 
 
