@@ -114,10 +114,10 @@ BEGIN
 
 
 	isop_i	<= '1';
-	
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
 	input_data_i	<= ("0100100111"); -- Original Codeword 0000100111	
+	WAIT FOR 15 ns;
+	isop_i	<= '0';
+	
 	WAIT FOR 150 ns;
 
 
