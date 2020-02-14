@@ -16,20 +16,14 @@ PORT(
 	-- Clock and Reset
 	clk 		: IN std_logic;
 	rstb 		: IN std_logic;
-
-
 	-- Input Interface I/O
 	isop 		: IN std_logic;
 	code_data 	: IN std_logic_vector(N-1 downto 0);
-
 	-- Output Interface I/O
 	edone 		: OUT std_logic;
 	error_data 	: OUT std_logic_vector (N-1 downto 0)
 );
-
 END AWGN ;
-
-
 
 
 ARCHITECTURE behav OF AWGN IS
@@ -39,13 +33,9 @@ TYPE state_type IS (ONRESET, IDLE,GEN_ERROR,ADD_ERROR, VERIFY,ERROR,EOP);
 -- Define States
 SIGNAL current_state, next_state : state_type;
 -- Define Signals
-SIGNAL error1 : integer;
-SIGNAL error2 : integer;
-SIGNAL error3 : integer;
+SIGNAL error1, error2, error3 : integer;
 SIGNAL code_data_i, code_data_s : std_logic_vector (N-1 downto 0);
-SIGNAL count1 : std_logic_vector (3 downto 0);
-SIGNAL count2 : std_logic_vector (3 downto 0);
-SIGNAL count3 : std_logic_vector (3 downto 0);
+SIGNAL count1, count2, count3 : std_logic_vector (3 downto 0);
 SIGNAL count : std_logic_vector (2 downto 0);
 SIGNAL verify_code, gen_done: std_logic;
 
@@ -58,54 +48,47 @@ BEGIN
 
 	CASE current_state IS
 	
-
 	WHEN ONRESET =>
-		next_state <= IDLE;
+	next_state <= IDLE;
 
 	WHEN IDLE =>
 	IF( isop = '1') THEN
-		next_state <= GEN_ERROR;
+	next_state <= GEN_ERROR;
 	ELSE
-		next_state <= IDLE;
+	next_state <= IDLE;
 	END IF;
-
 
 	WHEN GEN_ERROR =>
 	IF (gen_done = '1') THEN
-		next_state <= ADD_ERROR;
+	next_state <= ADD_ERROR;
 	ELSE
-		next_state <= GEN_ERROR;
+	next_state <= GEN_ERROR;
 	END IF;
 
-
 	WHEN ADD_ERROR =>
-		next_state <= VERIFY;
-
+	next_state <= VERIFY;
 
 	WHEN VERIFY =>
 	IF(verify_code = '0') THEN
-		next_state <= ERROR;
+	next_state <= ERROR;
 	ELSIF (verify_code = '1') THEN
-		next_state <= EOP;
+	next_state <= EOP;
 	ELSE
-		next_state <= VERIFY;
+	next_state <= VERIFY;
 	END IF;
 
 	WHEN EOP =>
-		next_state <= ONRESET;
+	next_state <= ONRESET;
 
 	WHEN ERROR =>
-		next_state <= ONRESET;
+	next_state <= ONRESET;
 
 	WHEN OTHERS =>
-		next_state <= ONRESET;
-
+	next_state <= ONRESET;
 
 	END CASE;
 
 	END PROCESS sequential;
-
-
 
 
 	clock_state_machine:
@@ -129,7 +112,7 @@ BEGIN
 	IF ( clk'EVENT and clk = '0') THEN
 
 	IF ( current_state = ONRESET) THEN
- 		error_data <= "UUUUUUUUUU" ;
+ 		error_data <= (OTHERS => 'U');
 		edone <= 'U';
 		verify_code<= 'U'; 
 		gen_done <= 'U'; 
@@ -138,9 +121,9 @@ BEGIN
 
 	IF (current_state = IDLE) THEN
 		count <= "111";
-		count1 <= "0000";
-		count2 <= "0000";
-		count3 <= "0000";
+		count1 <= (OTHERS => '0');
+		count2 <= (OTHERS => '0');
+		count3 <= (OTHERS => '0');
 		error1 <= 8;
 		error2 <= 5;
 		error3 <= 2;
@@ -168,8 +151,6 @@ BEGIN
 		count <= count;
 	END IF;
 	END IF;
-
-
 
 	IF ( current_state = ADD_ERROR) THEN	
 	-- Adding Errors
@@ -201,16 +182,13 @@ BEGIN
 	END IF;
 
 
-
-
 	IF (current_state = EOP) THEN
 		edone <= '1';
 		error_data <= code_data_i;
 	ELSE 
 		edone <= '0';
-		error_data <= "UUUUUUUUUU";
+		error_data <= (OTHERS => 'U');
 	END IF;
-
 	END IF;
 
 	END PROCESS combinational;

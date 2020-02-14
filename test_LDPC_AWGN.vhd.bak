@@ -107,12 +107,16 @@ BEGIN
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	
+
+
 	WAIT FOR 100 ns;
+
 
 	isop_i	<= '1';
 	code_data_i	<= ("0010011110");
         WAIT FOR 15 ns;
 	isop_i	<= '0';
+
 
 	WAIT FOR 100 ns;
 
@@ -120,6 +124,7 @@ BEGIN
 	code_data_i	<= ("1010110100");
         WAIT FOR 15 ns;
 	isop_i	<= '0';
+
 
 
 	END PROCESS Do_Test;

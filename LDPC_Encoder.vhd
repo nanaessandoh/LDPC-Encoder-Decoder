@@ -126,7 +126,7 @@ BEGIN
 	IF ( clk'EVENT and clk = '0') THEN
 
 	IF (current_state = ONRESET) THEN
-	odata_i <= "UUUUUUUUUU" ;
+	odata_i <= (OTHERS => 'U');
 	edone <= '0';
 	verify_code<= 'U'; 
 	
@@ -223,7 +223,7 @@ BEGIN
 	odata <= odata_i;
 	ELSE 
 	edone <= '0';
-	odata <= "UUUUUUUUUU";
+	odata <= (OTHERS => 'U');
 	END IF;
 	END IF;
 

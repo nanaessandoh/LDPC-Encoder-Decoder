@@ -128,7 +128,7 @@ BEGIN
 	IF ( clk'EVENT and clk = '0') THEN
 
 	IF ( current_state = ONRESET) THEN
- 		error_data <= "UUUUUUUUUU" ;
+ 		error_data <= (OTHERS => 'U') ;
 		edone <= '0';
 		verify_code<= 'U'; 
 		gen_done <= 'U'; 
@@ -137,9 +137,9 @@ BEGIN
 
 	IF (current_state = IDLE) THEN
 		count <= "111";
-		count1 <= "0000";
-		count2 <= "0000";
-		count3 <= "0000";
+		count1 <= (OTHERS => '0');
+		count2 <= (OTHERS => '0');
+		count3 <= (OTHERS => '0');
 		error1 <= 8;
 		error2 <= 5;
 		error3 <= 2;
@@ -195,7 +195,7 @@ BEGIN
 		error_data <= code_data_i;
 	ELSE 
 		edone <= '0';
-		error_data <= "UUUUUUUUUU";
+		error_data <= (OTHERS => 'U');
 	END IF;
 
 	END IF;
