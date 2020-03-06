@@ -9,7 +9,7 @@ USE IEEE.math_real.all;
 ENTITY test_Bit_Erasure IS
 GENERIC(
 	-- Define Generics
-	 N :natural := 10 -- Length of Codeword Bits
+	 C :natural := 10 -- Length of Codeword Bits
 );
 
 END test_Bit_Erasure;
@@ -28,11 +28,11 @@ PORT(
 
 	-- Input Interface I/O
 	isop : IN std_logic;
-	code_data : IN std_logic_vector(N-1 downto 0);
+	code_data : IN std_logic_vector(C-1 downto 0);
 
 	-- Output Interface I/O
 	edone : OUT std_logic;
-	error_data : OUT std_logic_vector (N-1 downto 0)
+	error_data : OUT std_logic_vector (C-1 downto 0)
 );
 
 END COMPONENT;
@@ -44,9 +44,9 @@ END COMPONENT;
 	signal clk_i 	: std_logic;
 	signal rstb_i 	: std_logic;
 	signal isop_i 	:  std_logic;
-	signal code_data_i 	:  std_logic_vector(N-1 downto 0);
+	signal code_data_i 	:  std_logic_vector(C-1 downto 0);
 	signal edone_i 	:  std_logic;
-	signal error_data_i 	:  std_logic_vector (N-1 downto 0);
+	signal error_data_i 	:  std_logic_vector (C-1 downto 0);
 
 BEGIN
 
