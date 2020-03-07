@@ -25,7 +25,7 @@ PORT(
 
 	-- Output Interface I/O
 	edone : OUT std_logic;
-	code_data : OUT std_logic_vector (N-1 downto 0)
+	msg_output : OUT std_logic_vector (N-1 downto 0)
 );
 
 END LDPC;
@@ -36,6 +36,11 @@ ARCHITECTURE behav OF Top_Level IS
 
 
 COMPONENT Encoder IS
+GENERIC(
+	-- Define Generics
+	 N : integer := 5; -- Length of Message Bits
+	 C : integer := 10 -- Length of Codewords
+);
 
 PORT(
 	-- Clock and Reset
@@ -57,6 +62,11 @@ END COMPONENT;
 
 COMPONENT Bit_Erasure IS
 
+GENERIC(
+	-- Define Generics
+	 C : integer := 10 -- Length of Codewords
+);
+
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -76,6 +86,11 @@ END COMPONENT;
 
 COMPONENT Message_Passing IS
 
+GENERIC(
+	-- Define Generics
+	 C : integer := 10 -- Length of Codewords
+);
+
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -93,6 +108,12 @@ PORT(
 END COMPONENT;
 
 COMPONENT Decoder IS
+
+GENERIC(
+	-- Define Generics
+	 N : integer := 5; -- Length of Message Bits
+	 C : integer := 10 -- Length of Codewords
+);
 
 PORT(
 	-- Clock and Reset
@@ -144,18 +165,18 @@ CE3: Message_Passing PORT MAP(	clk => clk,
 				rstb => rstb, 
 				isop => erasure_done_i,
 				error_data => code_bit_erasure_i, 
-				msg_pass_done => msg_pass_done,
+				msg_pass_done => msg_pass_done_i,
 				odata => code_msg_pass_i
 			);
 
 CE4: Decoder PORT MAP(	clk => clk,
 			rstb => rstb,
-			isop => msg_pass_done,
+			isop => msg_pass_done_i,
 			idata => code_msg_pass_i,  
 			edone => edone,
-			odata => code_data
+			odata => msg_output
 
-);
+			);
 
 
 END behav;
