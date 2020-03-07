@@ -21,18 +21,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity test_Bit_Erasure
 -- Compiling architecture behav of test_Bit_Erasure
 
-} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/test_LDPC_Message_Passing.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/test_LDPC_Message_Passing.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Compiling entity test_Message_Passing
--- Compiling architecture behav of test_Message_Passing
-
 } {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/LDPC_Encoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/LDPC_Encoder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
@@ -41,8 +29,8 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Compiling entity encoder
--- Compiling architecture behav of encoder
+-- Compiling entity Encoder
+-- Compiling architecture behav of Encoder
 
 } {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/test_LDPC_Decoder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/test_LDPC_Decoder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -87,7 +75,43 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
 -- Loading package NUMERIC_STD
--- Compiling entity decoder
--- Compiling architecture behav of decoder
+-- Compiling entity Decoder
+-- Compiling architecture behav of Decoder
 
-} {} {}}
+} {} {}} {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd} {0 {vcom -work work -2002 -explicit -stats=none {C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity LDPC
+-- Compiling architecture behav of Top_Level
+-- Loading entity Top_Level
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(74): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(74): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(74): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(78): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(78): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(78): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(92): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(92): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(92): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(96): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(96): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(96): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(111): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(111): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(111): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(125): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(125): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(125): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(126): (vcom-1136) Unknown identifier "C".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(126): ** Error: (vcom-1591) Bad expression in left bound of range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(126): Type error in range expression.
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(134): (vcom-1136) Unknown identifier "msg_input".
+** Error: C:/Users/Nana Essandoh/iCloudDrive/MUN/Project/Project Codes/LDPC/Top_Level_LDPC.vhd(151): VHDL Compiler exiting
+
+} {13.0 36.0} {}}

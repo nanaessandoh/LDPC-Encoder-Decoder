@@ -7,8 +7,8 @@ USE IEEE.numeric_std.ALL;
 ENTITY test_encoder IS
 GENERIC(
 	-- Define Generics
-	 N :natural := 5; -- Length of Message Bits
-	 C : natural := 10 -- Length of Codewords
+	 N : integer := 5; -- Length of Message Bits
+	 C : integer := 10 -- Length of Codewords
 );
 
 END test_encoder;

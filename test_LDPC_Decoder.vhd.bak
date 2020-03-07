@@ -18,11 +18,6 @@ ARCHITECTURE behav OF test_decoder IS
 -- Define Components
 COMPONENT decoder IS
 
-GENERIC(
-	-- Define Generics
-	 N :natural := 5; -- Length of Message Bits
-	 C : natural := 10 -- Length of Codewords
-);
 
 PORT(
 	-- Clock and Reset

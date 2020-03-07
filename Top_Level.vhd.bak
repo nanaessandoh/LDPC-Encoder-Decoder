@@ -37,6 +37,12 @@ ARCHITECTURE behav OF Top_Level IS
 
 COMPONENT Encoder IS
 
+GENERIC(
+	-- Define Generics
+	 N :natural := 5; -- Length of Message Bits
+	 C : natural := 10 -- Length of Codewords
+);
+
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -57,6 +63,11 @@ END COMPONENT;
 
 COMPONENT Bit_Erasure IS
 
+GENERIC(
+	-- Define Generics
+	 C : natural := 10 -- Length of Codewords
+);
+
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -76,6 +87,11 @@ END COMPONENT;
 
 COMPONENT Message_Passing IS
 
+GENERIC(
+	-- Define Generics
+	 C :natural := 10 -- Length of Codeword Bits
+);
+
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -93,6 +109,12 @@ PORT(
 END COMPONENT;
 
 COMPONENT Decoder IS
+
+GENERIC(
+	-- Define Generics
+	 N :natural := 5; -- Length of Message Bits
+	 C : natural := 10 -- Length of Codewords
+);
 
 PORT(
 	-- Clock and Reset
@@ -113,11 +135,9 @@ PORT(
 END COMPONENT;
 
 
---Signal Declaration
-SIGNAL encode_done_i: std_logic;
-SIGNAL erasure_done_i: std_logic;
+-- Signal Declaration
+SIGNAL edone_i: std_logic;
 SIGNAL code_encoder_i: std_logic_vector(C-1 downto 0);
-SIGNAL code_bit_erasure_i: std_logic_vector(C-1 downto 0);
 
 BEGIN
 
@@ -126,18 +146,11 @@ CE1: Encoder PORT MAP(		clk => clk,
 				isop => isop,
 				ivalid => '1',
 				idata => msg_input,
-				edone => encode_done_i,
+				edone => edone_i,
 				odata => code_encoder_i
+
+
 			); 
-
-CE2: Bit_Erasure PORT MAP(	clk => clk,
-				rstb => rstb, 
-				isop => erasure_done_i, 
-				code_data => code_encoder_i,
-				edone => erasure_done_i,
-				error_data => code_bit_erasure_i
-);
-
 
 
 

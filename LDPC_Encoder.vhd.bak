@@ -10,8 +10,8 @@ ENTITY Encoder IS
 
 GENERIC(
 	-- Define Generics
-	 N : integer := 5; -- Length of Message Bits
-	 C : integer := 10 -- Length of Codewords
+	 N :natural := 5; -- Length of Message Bits
+	 C : natural := 10 -- Length of Codewords
 );
 
 PORT(

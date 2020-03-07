@@ -9,7 +9,7 @@ ENTITY Message_Passing IS
 
 GENERIC(
 	-- Define Generics
-	 C :natural := 10 -- Length of Codeword Bits
+	 C : integer := 10 -- Length of Codeword Bits
 );
 
 PORT(

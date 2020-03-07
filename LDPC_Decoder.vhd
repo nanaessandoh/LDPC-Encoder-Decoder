@@ -6,12 +6,12 @@ USE IEEE.numeric_std.ALL;
 
 
 -- Input and Output Definition
-ENTITY decoder IS
+ENTITY Decoder IS
 
 GENERIC(
 	-- Define Generics
-	 N :natural := 5; -- Length of Message Bits
-	 C : natural := 10 -- Length of Codewords
+	 N : integer := 5; -- Length of Message Bits
+	 C : integer := 10 -- Length of Codewords
 );
 
 PORT(
@@ -30,12 +30,12 @@ PORT(
 
 );
 
-END decoder;
+END Decoder;
 
 
 --Hardware Description of Block
 
-ARCHITECTURE behav OF decoder IS
+ARCHITECTURE behav OF Decoder IS
 
 -- Define State of the State Machine
 TYPE state_type IS (ONRESET, IDLE,VERIFY,ERROR,DECODE);

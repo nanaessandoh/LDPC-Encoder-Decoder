@@ -6,7 +6,7 @@ USE IEEE.numeric_std.ALL;
 
 
 -- Input and Output Definition
-ENTITY decoder IS
+ENTITY Decoder IS
 
 GENERIC(
 	-- Define Generics
@@ -30,12 +30,12 @@ PORT(
 
 );
 
-END decoder;
+END Decoder;
 
 
 --Hardware Description of Block
 
-ARCHITECTURE behav OF decoder IS
+ARCHITECTURE behav OF Decoder IS
 
 -- Define State of the State Machine
 TYPE state_type IS (ONRESET, IDLE,VERIFY,ERROR,DECODE);
@@ -184,7 +184,6 @@ BEGIN
 	verify_code <= '0';
 	END IF;
 	END IF;
-
 
 
 	IF (current_state = DECODE) THEN

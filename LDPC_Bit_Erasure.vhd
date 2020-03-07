@@ -9,7 +9,7 @@ ENTITY Bit_Erasure IS
 
 GENERIC(
 	-- Define Generics
-	 C :natural := 10 -- Length of Codeword Bits
+	 C : integer := 10 -- Length of Codeword Bits
 );
 
 PORT(

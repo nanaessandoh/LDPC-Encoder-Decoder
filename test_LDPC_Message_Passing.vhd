@@ -8,8 +8,8 @@ USE IEEE.math_real.all;
 
 ENTITY test_Message_Passing IS
 GENERIC(
-	-- Define Generics
-	 C :natural := 10 -- Length of Codeword Bits
+--	 Define Generics
+	 C : integer := 10 -- Length of Codeword Bits
 );
 
 END test_Message_Passing;
