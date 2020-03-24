@@ -32,15 +32,10 @@ END LDPC;
 
 
 
-ARCHITECTURE behav OF Top_Level IS
+ARCHITECTURE behav OF LDPC IS
 
 
 COMPONENT Encoder IS
-GENERIC(
-	-- Define Generics
-	 N : integer := 5; -- Length of Message Bits
-	 C : integer := 10 -- Length of Codewords
-);
 
 PORT(
 	-- Clock and Reset
@@ -62,11 +57,6 @@ END COMPONENT;
 
 COMPONENT Bit_Erasure IS
 
-GENERIC(
-	-- Define Generics
-	 C : integer := 10 -- Length of Codewords
-);
-
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -86,11 +76,6 @@ END COMPONENT;
 
 COMPONENT Message_Passing IS
 
-GENERIC(
-	-- Define Generics
-	 C : integer := 10 -- Length of Codewords
-);
-
 PORT(
 	-- Clock and Reset
 	clk : IN std_logic;
@@ -108,12 +93,6 @@ PORT(
 END COMPONENT;
 
 COMPONENT Decoder IS
-
-GENERIC(
-	-- Define Generics
-	 N : integer := 5; -- Length of Message Bits
-	 C : integer := 10 -- Length of Codewords
-);
 
 PORT(
 	-- Clock and Reset

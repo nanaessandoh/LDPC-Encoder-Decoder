@@ -9,8 +9,8 @@ ENTITY LDPC IS
 
 GENERIC(
 	-- Define Generics
-	 N : integer := 5; 
-	 C : integer := 10
+	 N : integer := 5; -- Length of Message Bits
+	 C : integer := 10 -- Length of Codewords
 );
 
 PORT(
@@ -32,7 +32,7 @@ END LDPC;
 
 
 
-ARCHITECTURE behav OF Top_Level IS
+ARCHITECTURE behav OF LDPC IS
 
 
 COMPONENT Encoder IS
