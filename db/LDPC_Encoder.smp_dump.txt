@@ -1,0 +1,10 @@
+
+State Machine - |Encoder|current_state
+Name current_state.EOP current_state.ERROR current_state.VERIFY current_state.NODATA current_state.ENCODE current_state.IDLE current_state.ONRESET 
+current_state.ONRESET 0 0 0 0 0 0 0 
+current_state.IDLE 0 0 0 0 0 1 1 
+current_state.ENCODE 0 0 0 0 1 0 1 
+current_state.NODATA 0 0 0 1 0 0 1 
+current_state.VERIFY 0 0 1 0 0 0 1 
+current_state.ERROR 0 1 0 0 0 0 1 
+current_state.EOP 1 0 0 0 0 0 1 

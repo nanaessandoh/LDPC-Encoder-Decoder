@@ -1,0 +1,89 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "edone",
+					"strict" : false
+				},
+				{
+					"name" : "odata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[1]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[5]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[6]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[7]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[8]",
+					"strict" : false
+				},
+				{
+					"name" : "odata[9]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rstb",
+					"strict" : false
+				},
+				{
+					"name" : "idata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "idata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "idata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "idata[1]",
+					"strict" : false
+				},
+				{
+					"name" : "idata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ivalid",
+					"strict" : false
+				},
+				{
+					"name" : "isop",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

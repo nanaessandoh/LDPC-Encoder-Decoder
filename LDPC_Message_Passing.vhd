@@ -33,7 +33,7 @@ END Message_Passing;
 ARCHITECTURE behav OF Message_Passing IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET, IDLE, PARITY_CHK1, PARITY_CHK2, PARITY_CHK3, PARITY_CHK4, HOLD, FIX_1, FIX_2, FIX_3, FIX_4, FIX_5, CODE_CHECK, VERIFY, ERROR, DONE);
+TYPE state_type IS (ONRESET, IDLE, PARITY_CHK1, PARITY_CHK2, PARITY_CHK3, PARITY_CHK4, HOLD, FIX_1, FIX_2, FIX_3, FIX_4, FIX_5, CODE_CHECK, VERIFY, ERROR, DONE, DONE2, DONE3);
 
 -- Define States
 SIGNAL current_state, next_state : state_type;
@@ -60,7 +60,7 @@ BEGIN
 
 
 	sequential:
-	PROCESS(clk, rstb, isop, pcheck1, pcheck2, pcheck3, pcheck4, pcheck5)
+	PROCESS(clk, rstb,current_state,isop,verify_code,pcheck1, pcheck2, pcheck3, pcheck4, pcheck5)
 	BEGIN
 
 	CASE current_state IS
@@ -174,6 +174,12 @@ BEGIN
 
 
 	WHEN DONE =>
+	next_state <= DONE2;
+
+	WHEN DONE2 =>
+	next_state <= DONE3;
+
+	WHEN DONE3 =>
 	next_state <= ONRESET;
 
 
@@ -419,6 +425,17 @@ BEGIN
 		msg_pass_done <= '0';
 		odata <= (OTHERS => 'U');
 	END IF;
+
+
+	IF ( current_state = DONE2) THEN
+		msg_pass_done <= '1';
+		odata <= idata;
+	ELSE 
+		msg_pass_done <= '0';
+		odata <= (OTHERS => 'U');
+	END IF;	
+
+
 	END IF;
 
 	END PROCESS combinational;

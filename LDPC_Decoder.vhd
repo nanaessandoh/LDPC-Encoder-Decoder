@@ -51,7 +51,7 @@ BEGIN
 
 
 	sequential:
-	PROCESS(clk,rstb)
+	PROCESS(clk,rstb, current_state,isop,verify_code)
 	BEGIN
 
 	CASE current_state IS

@@ -1,0 +1,29 @@
+
+State Machine - |Top_Decoder|Decoder:CE2|current_state
+Name current_state.DECODE current_state.ERROR current_state.VERIFY current_state.IDLE current_state.ONRESET 
+current_state.ONRESET 0 0 0 0 0 
+current_state.IDLE 0 0 0 1 1 
+current_state.VERIFY 0 0 1 0 1 
+current_state.ERROR 0 1 0 0 1 
+current_state.DECODE 1 0 0 0 1 
+
+State Machine - |Top_Decoder|Message_Passing:CE1|current_state
+Name current_state.DONE3 current_state.DONE2 current_state.DONE current_state.ERROR current_state.VERIFY current_state.CODE_CHECK current_state.FIX_5 current_state.FIX_4 current_state.FIX_3 current_state.FIX_2 current_state.FIX_1 current_state.HOLD current_state.PARITY_CHK4 current_state.PARITY_CHK3 current_state.PARITY_CHK2 current_state.PARITY_CHK1 current_state.IDLE current_state.ONRESET 
+current_state.ONRESET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+current_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+current_state.PARITY_CHK1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+current_state.PARITY_CHK2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.PARITY_CHK3 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+current_state.PARITY_CHK4 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+current_state.HOLD 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+current_state.FIX_1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+current_state.FIX_2 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+current_state.FIX_3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+current_state.FIX_4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+current_state.FIX_5 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+current_state.CODE_CHECK 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.VERIFY 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.ERROR 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.DONE 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.DONE2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.DONE3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
