@@ -138,10 +138,10 @@ BEGIN
 	odata_i(C-3) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '0') xor (idata(N-5) and '0');
 	odata_i(C-4) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '0') xor (idata(N-4) and '1') xor (idata(N-5) and '0');
 	odata_i(C-5) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '0') xor (idata(N-4) and '0') xor (idata(N-5) and '1');
-	odata_i(C-6) <= (idata(N-1) and '0') xor (idata(N-2) and '1') xor (idata(N-3) and '1') xor (idata(N-4) and '1') xor (idata(N-5) and '1');
+	odata_i(C-6) <= (idata(N-1) and '0') xor (idata(N-2) and '1') xor (idata(N-3) and '1') xor (idata(N-4) and '1') xor (idata(N-5) and '0');
 	odata_i(C-7) <= (idata(N-1) and '1') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '0') xor (idata(N-5) and '0');
 	odata_i(C-8) <= (idata(N-1) and '1') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '0') xor (idata(N-5) and '1');
-	odata_i(C-9) <= (idata(N-1) and '0') xor (idata(N-2) and '1') xor (idata(N-3) and '1') xor (idata(N-4) and '1') xor (idata(N-5) and '1');
+	odata_i(C-9) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '1') xor (idata(N-5) and '1');
 	odata_i(C-10) <= (idata(N-1) and '1') xor (idata(N-2) and '1') xor (idata(N-3) and '0') xor (idata(N-4) and '0') xor (idata(N-5) and '1');
 	END IF; 
 

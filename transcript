@@ -1,11 +1,1 @@
-# Compile of LDPC_Bit_Erasure.vhd was successful.
-# Compile of LDPC_Decoder.vhd was successful.
-# Compile of LDPC_Encoder.vhd was successful.
-# Compile of LDPC_Message_Passing.vhd was successful.
-# Compile of test_LDPC_Bit_Erasure.vhd was successful.
-# Compile of test_LDPC_Decoder.vhd was successful.
-# Compile of test_LDPC_Encoder.vhd was successful.
-# Compile of test_LDPC_Message_Passing.vhd was successful.
-# Compile of Top_Level_Decoder.vhd was successful.
-# Compile of test_Top_Level_Decoder.vhd was successful.
-# 10 compiles, 0 failed with no errors.
+# Compile of Top_Level_LDPC.vhd was successful.

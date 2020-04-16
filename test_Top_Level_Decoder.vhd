@@ -23,14 +23,13 @@ PORT(
 	clk : IN std_logic;
 	rstb : IN std_logic;
 
-
 	-- Input Interface I/O
-	i_sop : IN std_logic;
-	e_data : IN std_logic_vector(C-1 downto 0);
+	isop : IN std_logic;
+	error_data : IN std_logic_vector(C-1 downto 0);
 
 	-- Output Interface I/O
-	e_done : OUT std_logic;
-	o_data : OUT std_logic_vector (N-1 downto 0)
+	dec_done : OUT std_logic;
+	odata : OUT std_logic_vector (N-1 downto 0)
 );
 
 END COMPONENT;
@@ -38,11 +37,11 @@ END COMPONENT;
  
 	signal CycleNumber : integer;
 
-	signal clk_i	 	:  std_logic;
-	signal rstb_i 		:  std_logic;
+	signal clk_i	:  std_logic;
+	signal rstb_i 	:  std_logic;
 	signal isop_i 	:  std_logic;
-	signal edata_i	:  std_logic_vector(C-1 downto 0);
-	signal edone_i 	:  std_logic;
+	signal error_data_i	:  std_logic_vector(C-1 downto 0);
+	signal dec_done_i 	:  std_logic;
 	signal odata_i 	:  std_logic_vector(N-1 downto 0);
 
 
@@ -89,13 +88,11 @@ END COMPONENT;
 	-- Port Map Declaration
 	test: Top_Decoder PORT MAP( 	clk => clk_i,
 				       	rstb => rstb_i,
-					i_sop => isop_i,
-					e_data => edata_i,
-					e_done => edone_i,
-					o_data => odata_i
+					isop => isop_i,
+					error_data => error_data_i,
+					dec_done => dec_done_i,
+					odata => odata_i
 				        );
-
-
 
 	-- Perform Test
 	Do_Test:
@@ -105,7 +102,7 @@ END COMPONENT;
 	WAIT FOR 10 ns;
 
 	isop_i	<= '1';
-	edata_i	<= ("00X010X1X1"); -- Original Codeword 0000100111	
+	error_data_i	<= ("00X010X1X1"); -- Original Codeword 0000100111	
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 	
@@ -113,14 +110,14 @@ END COMPONENT;
 
 
 	isop_i	<= '1';
-	edata_i	<= ("X0X0111X01"); -- Original Codeword 0010111001
+	error_data_i	<= ("X0X0111X01"); -- Original Codeword 0010111001
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 
 	WAIT FOR 350 ns;
 
 	isop_i	<= '1';
-	edata_i	<= ("0101X000XX"); --  Original Codeword 0101000011
+	error_data_i	<= ("0101X000XX"); --  Original Codeword 0101000011
         WAIT FOR 15 ns;
 	isop_i	<= '0';
 
