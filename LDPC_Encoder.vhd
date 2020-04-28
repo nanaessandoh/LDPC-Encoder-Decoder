@@ -23,11 +23,11 @@ PORT(
 	-- Input Interface I/O
 	isop : IN std_logic;
 	ivalid: IN std_logic;
-	idata : IN std_logic_vector(N-1 downto 0);
+	input_data : IN std_logic_vector(N-1 downto 0);
 
 	-- Output Interface I/O
 	edone : OUT std_logic;
-	odata : OUT std_logic_vector (C-1 downto 0)
+	code_data : OUT std_logic_vector (C-1 downto 0)
 
 );
 
@@ -39,7 +39,7 @@ END Encoder;
 ARCHITECTURE behav OF Encoder IS
 
 -- Define State of the State Machine
-TYPE state_type IS (ONRESET, IDLE,ENCODE,NODATA,VERIFY,ERROR,EOP);
+TYPE state_type IS (ONRESET, IDLE,ENCODE,NODATA,VERIFY,ERROR,EOP,DONE);
 
 
 -- Define Signals 
@@ -93,6 +93,9 @@ BEGIN
 	END IF;
 
 	WHEN EOP =>
+	next_state <= DONE;
+
+	WHEN DONE =>
 	next_state <= ONRESET;
 
 	WHEN ERROR =>
@@ -127,22 +130,25 @@ BEGIN
 
 	IF (current_state = ONRESET) THEN
 	odata_i <= (OTHERS => 'U');
+	code_data <= (OTHERS => 'U');
 	edone <= '0';
 	verify_code<= 'U'; 
 	
 	END IF;
 
 	IF (current_state = ENCODE) THEN
-	odata_i(C-1) <= (idata(N-1) and '1') xor (idata(N-2) and '0') xor (idata(N-3) and '0') xor (idata(N-4) and '0') xor (idata(N-5) and '0');	
-	odata_i(C-2) <= (idata(N-1) and '0') xor (idata(N-2) and '1') xor (idata(N-3) and '0') xor (idata(N-4) and '0') xor (idata(N-5) and '0');
-	odata_i(C-3) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '0') xor (idata(N-5) and '0');
-	odata_i(C-4) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '0') xor (idata(N-4) and '1') xor (idata(N-5) and '0');
-	odata_i(C-5) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '0') xor (idata(N-4) and '0') xor (idata(N-5) and '1');
-	odata_i(C-6) <= (idata(N-1) and '0') xor (idata(N-2) and '1') xor (idata(N-3) and '1') xor (idata(N-4) and '1') xor (idata(N-5) and '0');
-	odata_i(C-7) <= (idata(N-1) and '1') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '0') xor (idata(N-5) and '0');
-	odata_i(C-8) <= (idata(N-1) and '1') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '0') xor (idata(N-5) and '1');
-	odata_i(C-9) <= (idata(N-1) and '0') xor (idata(N-2) and '0') xor (idata(N-3) and '1') xor (idata(N-4) and '1') xor (idata(N-5) and '1');
-	odata_i(C-10) <= (idata(N-1) and '1') xor (idata(N-2) and '1') xor (idata(N-3) and '0') xor (idata(N-4) and '0') xor (idata(N-5) and '1');
+	odata_i(C-1) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');	
+	odata_i(C-2) <= (input_data(N-1) and '0') xor (input_data(N-2) and '1') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
+	odata_i(C-3) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
+	odata_i(C-4) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '1') xor (input_data(N-5) and '0');
+	odata_i(C-5) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
+	odata_i(C-6) <= (input_data(N-1) and '0') xor (input_data(N-2) and '1') xor (input_data(N-3) and '1') xor (input_data(N-4) and '1') xor (input_data(N-5) and '0');
+	odata_i(C-7) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
+	odata_i(C-8) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
+	odata_i(C-9) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '1') xor (input_data(N-5) and '1');
+	odata_i(C-10) <= (input_data(N-1) and '1') xor (input_data(N-2) and '1') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
+	code_data <= (OTHERS => 'U');
+	edone <= '0';
 	END IF; 
 
 
@@ -214,16 +220,18 @@ BEGIN
 	ELSE
 	verify_code <= '0';
 	END IF;
+	code_data <= (OTHERS => 'U');
+	edone <= '0';
 	END IF;
 
 
 
 	IF (current_state = EOP) THEN
 	edone <= '1';
-	odata <= odata_i;
+	code_data <= odata_i;
 	ELSE 
 	edone <= '0';
-	odata <= (OTHERS => 'U');
+	code_data <= (OTHERS => 'U');
 	END IF;
 	END IF;
 
