@@ -98,7 +98,7 @@ END COMPONENT;
 	
 	WAIT FOR 20 ns;
 
-	error_data_i	<= ("00X010X1X1"); -- Original Codeword 0000100111	
+	error_data_i <= ("00X010X1X1"); -- Original Codeword 0000100111	
         WAIT FOR 15 ns;
 	error_data_i	<= (OTHERS => 'U');
 	
@@ -106,14 +106,14 @@ END COMPONENT;
 
 
 
-	error_data_i	<= ("X0X0111X01"); -- Original Codeword 0010111001    
+	error_data_i <= ("X0X0111X01"); -- Original Codeword 0010111001    
         WAIT FOR 15 ns;
 	error_data_i	<= (OTHERS => 'U');
 
 	WAIT FOR 300 ns;
 
 	
-	error_data_i	<= ("0101X000XX"); --  Original Codeword 0101000011
+	error_data_i <= ("0101X000XX"); --  Original Codeword 0101000011
         WAIT FOR 15 ns;
 	error_data_i	<= (OTHERS => 'U');
 

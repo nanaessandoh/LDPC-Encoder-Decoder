@@ -4,35 +4,32 @@ USE IEEE.std_logic_arith.ALL;
 USE IEEE.std_logic_unsigned.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY Test_Encoder IS
+ENTITY Test_Top_Level IS
 GENERIC(
 	-- Define Generics
 	 N : integer := 5; -- Length of Message Bits
 	 C : integer := 10 -- Length of Codewords
 );
 
-END Test_Encoder;
+END Test_Top_Level;
 
-ARCHITECTURE behav OF Test_Encoder IS
+ARCHITECTURE behav OF Test_Top_Level IS
 
 -- Define Components
-COMPONENT Encoder IS
+COMPONENT LDPC IS
+
 PORT(
-	-- Clock and Reset
 	clk : IN std_logic;
 	rstb : IN std_logic;
-
-
-	-- Input Interface I/O
 	isop : IN std_logic;
 	ivalid: IN std_logic;
 	input_data : IN std_logic_vector(N-1 downto 0);
-
-	-- Output Interface I/O
-	edone : OUT std_logic;
-	code_data : OUT std_logic_vector (C-1 downto 0)
+	dec_done : OUT std_logic;
+	output_data : OUT std_logic_vector (N-1 downto 0)
 
 );
+
+
 END COMPONENT;
 
  
@@ -43,8 +40,8 @@ END COMPONENT;
 	signal isop_i 		:  std_logic;
 	signal ivalid_i		:  std_logic;
 	signal input_data_i 	:  std_logic_vector(N-1 downto 0);
-	signal edone_i 		:  std_logic;
-	signal code_data_i 	:  std_logic_vector (C-1 downto 0);
+	signal dec_done_i 	:  std_logic;
+	signal output_data_i 	:  std_logic_vector (N-1 downto 0);
 
 
     BEGIN
@@ -61,7 +58,7 @@ END COMPONENT;
 	clk_i <= '0';
 	WAIT FOR TimeLow;
 
-	--Handle Reset
+	-- Handle Reset
 	CycleCount := CycleCount + 1;
 	CycleNumber <= CycleCount AFTER 1 ns;
 
@@ -81,19 +78,18 @@ END COMPONENT;
 	END IF; 
 	END PROCESS GenerateRSTB;
 
-
     
 
 
 	-- Port Map Declaration
-	test: encoder PORT MAP( 	clk => clk_i,
-				       	rstb => rstb_i,
+	test: LDPC PORT MAP(		clk => clk_i,
+					rstb => rstb_i, 
 					isop => isop_i,
 					ivalid => ivalid_i,
 					input_data => input_data_i,
-					edone => edone_i,
-					code_data => code_data_i
-				        );
+					dec_done => dec_done_i,
+					output_data => output_data_i
+					);
 
 
 	-- Perform Test
@@ -101,68 +97,36 @@ END COMPONENT;
 	PROCESS
 	BEGIN
 
-	WAIT FOR 5 ns;
+	WAIT FOR 10 ns;
 
+	isop_i	<= '1';
+	ivalid_i<= '1';
+	input_data_i <= ("10100");
+	WAIT FOR 15 ns;
 	isop_i	<= '0';
 	ivalid_i<= '0';
-	idata_i	<= (OTHERS => 'X');
 
-
-	WAIT FOR 10 ns;
+	WAIT FOR 600 ns;
 	isop_i	<= '1';
 	ivalid_i<= '1';
-	idata_i	<= (OTHERS => '0');
+	input_data_i <= ("01001");
+        WAIT FOR 15 ns;
+	isop_i	<= '0';
+	ivalid_i<= '0';
+
+	WAIT FOR 600 ns;
+	isop_i	<= '1';
+	ivalid_i<= '1';
+	input_data_i <= ("00111");
 	WAIT FOR 15 ns;
 	isop_i	<= '0';
+	ivalid_i<= '0';
 
 
-	WAIT FOR 100 ns;
-	isop_i	<= '1';
-	ivalid_i<= '1';
-	idata_i	<= (OTHERS => '1');
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
+	WAIT FOR 600 ns;
 
-
-
-	WAIT FOR 100 ns;
-	isop_i	<= '1';
-	ivalid_i<= '1';
-	idata_i	<= ("00001");
-	WAIT FOR 15 ns;
-	isop_i	<= '0';
-
-
-
-	WAIT FOR 100 ns;
-	isop_i	<= '1';
-	ivalid_i<= '1';
-	idata_i	<= ("00010");
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
-
-
-	WAIT FOR 100 ns;
-	isop_i	<= '1';
-	ivalid_i<= '1';
-	idata_i	<= ("00011");
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
-
-
-	WAIT FOR 100 ns;
-	isop_i	<= '1';
-	ivalid_i<= '1';
-	idata_i	<= ("00100");
-        WAIT FOR 15 ns;
-	isop_i	<= '0';
-
-	
 
 	END PROCESS Do_test;
 
 
-
-
     END behav;
-
