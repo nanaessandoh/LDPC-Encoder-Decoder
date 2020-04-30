@@ -17,9 +17,9 @@ add wave -noupdate /test_decoder/test/mp_code
 add wave -noupdate /test_decoder/test/idata
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-quietly wave cursor active 0
-configure wave -namecolwidth 196
-configure wave -valuecolwidth 100
+quietly wave cursor active 1
+configure wave -namecolwidth 208
+configure wave -valuecolwidth 82
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -32,4 +32,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1999097 ps} {2000048 ps}
+WaveRestoreZoom {0 ps} {244224 ps}

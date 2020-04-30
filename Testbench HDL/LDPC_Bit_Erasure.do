@@ -21,7 +21,7 @@ add wave -noupdate /test_bit_erasure/test/gen_done
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 0
-configure wave -namecolwidth 150
+configure wave -namecolwidth 230
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -35,4 +35,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1999050 ps} {2000050 ps}
+WaveRestoreZoom {0 ps} {232448 ps}

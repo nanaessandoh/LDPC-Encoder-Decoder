@@ -12,9 +12,9 @@ add wave -noupdate /test_encoder/test/next_state
 add wave -noupdate /test_encoder/test/odata_i
 add wave -noupdate /test_encoder/test/verify_code
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-quietly wave cursor active 0
-configure wave -namecolwidth 150
+WaveRestoreCursors {{Cursor 1} {139932 ps} 0}
+quietly wave cursor active 1
+configure wave -namecolwidth 209
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -28,4 +28,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1999050 ps} {2000050 ps}
+WaveRestoreZoom {0 ps} {119296 ps}
