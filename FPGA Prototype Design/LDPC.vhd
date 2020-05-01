@@ -1,3 +1,7 @@
+-- The Top Level of the LDPC Encoder, Bit Erasure Channel and Message Passing Decoder
+-- On the FPGA Board X and U cannot be simulated on the board so each 5 bit is encoded to a 20 Bit codeword
+-- 00 for a 0, 11 for a 1, 10 for a U, and 01 for an X
+  
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;

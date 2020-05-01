@@ -1,3 +1,4 @@
+-- 5-Bit Counter to enable us switch between states
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;
