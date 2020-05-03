@@ -1,3 +1,4 @@
+-- The Shift Register is used to Display the Codeword as they are shift on the HEX Displays
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;
@@ -68,7 +69,7 @@ BEGIN
 					OUT_VAL_2I <= OUT_VAL_1I;
 					OUT_VAL_1I <= OUT_VAL_0I;
 					OUT_VAL_0I <= IN_VAL_I(19 downto 18);
----------------------------------------------------------------------
+					------------------------------
 					IN_VAL_I(19) <= IN_VAL_I(17) ;
 					IN_VAL_I(18) <= IN_VAL_I(16) ;
 					IN_VAL_I(17) <= IN_VAL_I(15) ;

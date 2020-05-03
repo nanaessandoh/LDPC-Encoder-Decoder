@@ -1,3 +1,4 @@
+-- LED lights up to represent the particular bit with a bit erasure 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;

@@ -1,3 +1,4 @@
+-- The crystal of the FPGA board is 50MHZ so we need to generate a 1 second signal
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;

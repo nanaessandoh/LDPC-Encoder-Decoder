@@ -1,3 +1,4 @@
+-- The Hex Controller Determines what is going to be shown on HEX Displays at each state
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.std_logic_unsigned.ALL;
@@ -185,7 +186,5 @@ BEGIN
 
 SHIFT_0 : Shift_Reg PORT MAP (CLOCK_50,Reset,CODE_INPUT,Hex0,Hex1,Hex2,Hex3,Hex4,Hex5);
 end behav;
-
-
 
 
