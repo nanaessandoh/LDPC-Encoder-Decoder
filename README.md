@@ -1,4 +1,4 @@
-# LDPC Encoder and Decoder
+# LDPC Encoder and Message Passing Decoder
 
 Generator Matrix<br>
 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1 |
