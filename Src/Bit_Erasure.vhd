@@ -37,9 +37,9 @@ TYPE state_type IS (ONRESET, IDLE,GEN_ERROR,ADD_ERROR, VERIFY,ERROR,DONE,DONE_EX
 -- Define States
 SIGNAL current_state, next_state : state_type;
 -- Define Signals
-SIGNAL error1 : integer;
-SIGNAL error2 : integer;
-SIGNAL error3 : integer;
+SIGNAL error1 : integer; -- First Random Error Position in Codeword
+SIGNAL error2 : integer; -- Second Random Error Position in Codeword
+SIGNAL error3 : integer; -- Third Random Error Position in Codeword
 SIGNAL code_data_i, code_data_s : std_logic_vector (C-1 downto 0);
 SIGNAL count1 : std_logic_vector (3 downto 0);
 SIGNAL count2 : std_logic_vector (3 downto 0);

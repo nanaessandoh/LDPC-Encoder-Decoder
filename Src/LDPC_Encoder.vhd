@@ -45,7 +45,7 @@ TYPE state_type IS (ONRESET, IDLE,ENCODE,NODATA,VERIFY,ERROR,EOP,DONE);
 -- Define Signals 
 
 SIGNAL current_state, next_state : state_type;
-SIGNAL odata_i : std_logic_vector (C-1 downto 0);
+SIGNAL oData_i : std_logic_vector (C-1 downto 0);
 SIGNAL verify_code : std_logic;
 
 BEGIN
@@ -129,7 +129,7 @@ BEGIN
 	IF ( clk'EVENT and clk = '0') THEN
 
 	IF (current_state = ONRESET) THEN
-	odata_i <= (OTHERS => 'U');
+	oData_i <= (OTHERS => 'U');
 	code_data <= (OTHERS => 'U');
 	edone <= '0';
 	verify_code<= 'U'; 
@@ -137,85 +137,85 @@ BEGIN
 	END IF;
 
 	IF (current_state = ENCODE) THEN
-	odata_i(C-1) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');	
-	odata_i(C-2) <= (input_data(N-1) and '0') xor (input_data(N-2) and '1') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
-	odata_i(C-3) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
-	odata_i(C-4) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '1') xor (input_data(N-5) and '0');
-	odata_i(C-5) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
-	odata_i(C-6) <= (input_data(N-1) and '0') xor (input_data(N-2) and '1') xor (input_data(N-3) and '1') xor (input_data(N-4) and '1') xor (input_data(N-5) and '0');
-	odata_i(C-7) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
-	odata_i(C-8) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
-	odata_i(C-9) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '1') xor (input_data(N-5) and '1');
-	odata_i(C-10) <= (input_data(N-1) and '1') xor (input_data(N-2) and '1') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
+	oData_i(C-1) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');	
+	oData_i(C-2) <= (input_data(N-1) and '0') xor (input_data(N-2) and '1') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
+	oData_i(C-3) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
+	oData_i(C-4) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '1') xor (input_data(N-5) and '0');
+	oData_i(C-5) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
+	oData_i(C-6) <= (input_data(N-1) and '0') xor (input_data(N-2) and '1') xor (input_data(N-3) and '1') xor (input_data(N-4) and '1') xor (input_data(N-5) and '0');
+	oData_i(C-7) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '0');
+	oData_i(C-8) <= (input_data(N-1) and '1') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
+	oData_i(C-9) <= (input_data(N-1) and '0') xor (input_data(N-2) and '0') xor (input_data(N-3) and '1') xor (input_data(N-4) and '1') xor (input_data(N-5) and '1');
+	oData_i(C-10) <= (input_data(N-1) and '1') xor (input_data(N-2) and '1') xor (input_data(N-3) and '0') xor (input_data(N-4) and '0') xor (input_data(N-5) and '1');
 	code_data <= (OTHERS => 'U');
 	edone <= '0';
 	END IF; 
 
 
 	IF (current_state = VERIFY) THEN
-	IF (odata_i = "0000000000") THEN   --1
+	IF (oData_i = "0000000000") THEN   --1
 	verify_code <= '1';
-	ELSIF (odata_i = "0000100111") THEN --2
+	ELSIF (oData_i = "0000100111") THEN --2
 	verify_code <= '1';
-	ELSIF (odata_i = "0001010010") THEN --3
+	ELSIF (oData_i = "0001010010") THEN --3
 	verify_code <= '1';
-	ELSIF (odata_i = "0001110101") THEN --4
+	ELSIF (oData_i = "0001110101") THEN --4
 	verify_code <= '1';
-	ELSIF (odata_i = "0010011110") THEN --5
+	ELSIF (oData_i = "0010011110") THEN --5
 	verify_code <= '1';
-	ELSIF (odata_i = "0010111001") THEN --6
+	ELSIF (oData_i = "0010111001") THEN --6
 	verify_code <= '1';
-	ELSIF (odata_i = "0011001100") THEN --7
+	ELSIF (oData_i = "0011001100") THEN --7
 	verify_code <= '1';
-	ELSIF (odata_i = "0011101011") THEN --8
+	ELSIF (oData_i = "0011101011") THEN --8
 	verify_code <= '1';
-	ELSIF (odata_i = "0100010001") THEN --9
+	ELSIF (oData_i = "0100010001") THEN --9
 	verify_code <= '1';
-	ELSIF (odata_i = "0100110110") THEN --10
+	ELSIF (oData_i = "0100110110") THEN --10
 	verify_code <= '1';
-	ELSIF (odata_i = "0101000011") THEN --11
+	ELSIF (oData_i = "0101000011") THEN --11
 	verify_code <= '1';
-	ELSIF (odata_i = "0101100100") THEN --12
+	ELSIF (oData_i = "0101100100") THEN --12
 	verify_code <= '1';
-	ELSIF (odata_i = "0110001111") THEN --13
+	ELSIF (oData_i = "0110001111") THEN --13
 	verify_code <= '1';
-	ELSIF (odata_i = "0110101000") THEN --14
+	ELSIF (oData_i = "0110101000") THEN --14
 	verify_code <= '1';
-	ELSIF (odata_i = "0111011101") THEN --15
+	ELSIF (oData_i = "0111011101") THEN --15
 	verify_code <= '1';
-	ELSIF (odata_i = "0111111010") THEN --16
+	ELSIF (oData_i = "0111111010") THEN --16
 	verify_code <= '1';
-	ELSIF (odata_i = "1000001101") THEN --17
+	ELSIF (oData_i = "1000001101") THEN --17
 	verify_code <= '1';
-	ELSIF (odata_i = "1000101010") THEN --18
+	ELSIF (oData_i = "1000101010") THEN --18
 	verify_code <= '1';
-	ELSIF (odata_i = "1001011111") THEN --19
+	ELSIF (oData_i = "1001011111") THEN --19
 	verify_code <= '1';
-	ELSIF (odata_i = "1001111000") THEN --20
+	ELSIF (oData_i = "1001111000") THEN --20
 	verify_code <= '1';
-	ELSIF (odata_i = "1010010011") THEN --21
+	ELSIF (oData_i = "1010010011") THEN --21
 	verify_code <= '1';
-	ELSIF (odata_i = "1010110100") THEN --22
+	ELSIF (oData_i = "1010110100") THEN --22
 	verify_code <= '1';
-	ELSIF (odata_i = "1011000001") THEN --23
+	ELSIF (oData_i = "1011000001") THEN --23
 	verify_code <= '1';
-	ELSIF (odata_i = "1011100110") THEN --24
+	ELSIF (oData_i = "1011100110") THEN --24
 	verify_code <= '1';
-	ELSIF (odata_i = "1100011100") THEN --25
+	ELSIF (oData_i = "1100011100") THEN --25
 	verify_code <= '1';
-	ELSIF (odata_i = "1100111011") THEN --26
+	ELSIF (oData_i = "1100111011") THEN --26
 	verify_code <= '1';
-	ELSIF (odata_i = "1101001110") THEN --27
+	ELSIF (oData_i = "1101001110") THEN --27
 	verify_code <= '1';
-	ELSIF (odata_i = "1101101001") THEN --28
+	ELSIF (oData_i = "1101101001") THEN --28
 	verify_code <= '1';
-	ELSIF (odata_i = "1110000010") THEN --29
+	ELSIF (oData_i = "1110000010") THEN --29
 	verify_code <= '1';
-	ELSIF (odata_i = "1110100101") THEN --30
+	ELSIF (oData_i = "1110100101") THEN --30
 	verify_code <= '1';
-	ELSIF (odata_i = "1111010000") THEN --31
+	ELSIF (oData_i = "1111010000") THEN --31
 	verify_code <= '1';
-	ELSIF (odata_i = "1111110111") THEN --32
+	ELSIF (oData_i = "1111110111") THEN --32
 	verify_code <= '1';
 	ELSE
 	verify_code <= '0';
@@ -228,7 +228,7 @@ BEGIN
 
 	IF (current_state = EOP) THEN
 	edone <= '1';
-	code_data <= odata_i;
+	code_data <= oData_i;
 	ELSE 
 	edone <= '0';
 	code_data <= (OTHERS => 'U');
